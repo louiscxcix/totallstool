@@ -39,4 +39,44 @@
 <button class="print" onclick="window.print()" data-es="Imprimir / Guardar como PDF" data-ko="인쇄 / PDF 저장">Imprimir / Guardar como PDF</button><div class="footer" data-es="Guía de recuperación para material SIN LOTE acumulado · Uso por personal de producción familiarizado con MES." data-ko="누적 SIN LOTE 제품 복구 가이드 · MES 사용 경험이 있는 생산팀용">Guía de recuperación para material SIN LOTE acumulado · Uso por personal de producción familiarizado con MES.</div>
 </main><script>
 function setLanguage(next){document.documentElement.lang=next;document.querySelectorAll('[data-es]').forEach(el=>{el.textContent=el.dataset[next]||el.dataset.es});document.getElementById('esBtn').setAttribute('aria-pressed',next==='es');document.getElementById('koBtn').setAttribute('aria-pressed',next==='ko');document.title=next==='es'?'SIN LOTE | Guía de recuperación de backlog':'SIN LOTE | 누적 SIN LOTE 복구 가이드'}document.getElementById('esBtn').onclick=()=>setLanguage('es');document.getElementById('koBtn').onclick=()=>setLanguage('ko');document.querySelectorAll('[data-case]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.detail').forEach(p=>p.hidden=true);document.querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('detail-'+btn.dataset.case).hidden=false;btn.setAttribute('aria-pressed','true');document.getElementById('detail-'+btn.dataset.case).scrollIntoView({behavior:'smooth',block:'start'})}));
-</script></body></html>
+</script>
+<style>
+#access-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:#142b3a;color:#fff;font-family:Arial,sans-serif}
+#access-gate .gate-card{width:min(100%,390px);background:#fff;color:#172b3b;border-radius:18px;padding:28px;box-shadow:0 20px 60px #0004}
+#access-gate h2{margin:0 0 8px;font-size:24px}
+#access-gate p{margin:0 0 20px;color:#5d7180;line-height:1.5}
+#access-gate input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #cbd7df;border-radius:9px;font-size:16px;margin-bottom:12px}
+#access-gate button{width:100%;padding:13px;border:0;border-radius:9px;background:#1261d8;color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+#access-gate .error{color:#b42318;font-size:13px;min-height:18px;margin:10px 0 0}
+body.gate-locked{overflow:hidden}
+</style>
+<div id="access-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <form class="gate-card" id="access-gate-form">
+    <h2 id="gate-title">Access Required</h2>
+    <p>Enter the access password to open the Operations Toolkit.</p>
+    <input id="access-gate-password" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Password" aria-label="Password" required autofocus>
+    <button type="submit">Enter</button>
+    <div id="access-gate-error" class="error" role="status"></div>
+  </form>
+</div>
+<script>
+(function(){
+  var key = "operations-toolkit-unlocked";
+  var gate = document.getElementById("access-gate");
+  if (sessionStorage.getItem(key) === "yes") { gate.remove(); return; }
+  document.body.classList.add("gate-locked");
+  document.getElementById("access-gate-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    if (document.getElementById("access-gate-password").value === "7777777") {
+      sessionStorage.setItem(key, "yes");
+      document.body.classList.remove("gate-locked");
+      gate.remove();
+    } else {
+      document.getElementById("access-gate-error").textContent = "Incorrect password. Please try again.";
+      document.getElementById("access-gate-password").select();
+    }
+  });
+})();
+</script>
+
+</body></html>
