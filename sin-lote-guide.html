@@ -61,14 +61,11 @@ body.gate-locked{overflow:hidden}
 </div>
 <script>
 (function(){
-  var key = "operations-toolkit-unlocked";
   var gate = document.getElementById("access-gate");
-  if (sessionStorage.getItem(key) === "yes") { gate.remove(); return; }
   document.body.classList.add("gate-locked");
   document.getElementById("access-gate-form").addEventListener("submit", function(e){
     e.preventDefault();
     if (document.getElementById("access-gate-password").value === "7777777") {
-      sessionStorage.setItem(key, "yes");
       document.body.classList.remove("gate-locked");
       gate.remove();
     } else {
