@@ -142,16 +142,24 @@ main{max-width:1160px}
       <article class="branch">
         <span class="branch-label" data-es="NO · LOT NO CREADO" data-ko="아니요 · LOT 미생성">NO · LOT NO CREADO</span>
         <div class="mini-flow">
-          <div class="node"><strong data-es="Confirmar modelo y cantidad física" data-ko="모델과 실물 수량 확인">Confirmar modelo y cantidad física</strong><small data-es="Identifica cuántos LOT individuales requiere el conjunto del modelo y cuántas unidades existen realmente." data-ko="모델의 대표 랏 구성에 필요한 개별 LOT 수와 실제 제품 수량을 확인합니다.">Identifica cuántos LOT individuales requiere el conjunto del modelo y cuántas unidades existen realmente.</small></div>
+          <div class="node"><strong data-es="Confirmar modelo y cantidad física" data-ko="모델과 실물 수량 확인">Confirmar modelo y cantidad física</strong><small data-es="Identifica cuántos LOT individuales exige el conjunto de ese modelo y cuenta solo las unidades físicas que realmente existen." data-ko="해당 모델의 세트에 필요한 개별 LOT 수와 실제 존재하는 제품 수량을 확인합니다.">Identifica cuántos LOT individuales exige el conjunto de ese modelo y cuenta solo las unidades físicas que realmente existen.</small></div>
           <div class="down">↓</div>
-          <div class="decision" data-es="¿Es un caso externo y no se encuentra el LOT externo?" data-ko="외주 건이며 외주 LOT를 찾을 수 없는가?">¿Es un caso externo y no se encuentra el LOT externo?</div>
-          <div class="node warning"><strong data-es="Sí → Solo LOT individuales" data-ko="예 → 개별 LOT만 생성">Sí → Solo LOT individuales</strong><small data-es="Crear únicamente los LOT de las unidades reales. No crear LOT representativo." data-ko="실제로 있는 제품의 개별 LOT만 생성합니다. 대표 랏은 생성하지 않습니다.">Crear únicamente los LOT de las unidades reales. No crear LOT representativo.</small></div>
+          <div class="decision" data-es="¿Qué tipo de caso es?" data-ko="어떤 유형의 건인가?">¿Qué tipo de caso es?</div>
+          <div class="branches">
+            <article class="branch">
+              <span class="branch-label" data-es="RUTA EXTERNA" data-ko="외주 경로">RUTA EXTERNA</span>
+              <div class="node warning"><strong data-es="No se encuentra el LOT externo" data-ko="외주 LOT를 찾을 수 없음">No se encuentra el LOT externo</strong><small data-es="Crear únicamente un LOT individual por cada producto real. No crear LOT representativo." data-ko="실제 제품별 개별 LOT만 생성합니다. 대표 랏은 생성하지 않습니다.">Crear únicamente un LOT individual por cada producto real. No crear LOT representativo.</small></div>
+            </article>
+            <article class="branch">
+              <span class="branch-label" data-es="RUTA MAIN/SUB" data-ko="Main/Sub 경로">RUTA MAIN/SUB</span>
+              <div class="decision" data-es="¿Está completo el conjunto requerido?" data-ko="필요한 세트 구성이 완성됐는가?">¿Está completo el conjunto requerido?</div>
+              <div class="node success"><strong data-es="Sí → Crear LOT individuales en Lote Main Line" data-ko="예 → Lote Main Line에서 개별 LOT 생성">Sí → Crear LOT individuales en Lote Main Line</strong><small data-es="Esta pantalla crea solo LOT individuales; no crea el LOT representativo." data-ko="이 화면에서는 개별 LOT만 생성하며 대표 랏은 생성하지 않습니다.">Esta pantalla crea solo LOT individuales; no crea el LOT representativo.</small></div>
+              <div class="node warning"><strong data-es="No → Crear solo LOT individuales reales" data-ko="아니요 → 실물 제품의 개별 LOT만 생성">No → Crear solo LOT individuales reales</strong><small data-es="No crear representante ni completar la cantidad con LOT ficticios." data-ko="대표 랏을 생성하거나 부족한 수량을 허수 LOT로 채우지 않습니다.">No crear representante ni completar la cantidad con LOT ficticios.</small></div>
+              <div class="node action"><strong data-es="Cuando el representativo esté disponible: Main/Sub" data-ko="대표 랏이 준비되면: Main/Sub 처리">Cuando el representativo esté disponible: Main/Sub</strong><small data-es="Introduce el LOT representativo y los LOT individuales en Main/Sub y empareja los que pertenecen al mismo conjunto. Si el LOT representativo aún no existe, sigue su procedimiento de creación correspondiente; no intentes crearlo en Lote Main Line." data-ko="Main/Sub에서 대표 랏과 개별 LOT를 입력하고 같은 세트에 속하는 항목끼리 매칭합니다. 대표 랏이 아직 없다면 해당 대표 랏 생성 절차를 따릅니다. Lote Main Line에서 대표 랏을 생성하지 않습니다.">Introduce el LOT representativo y los LOT individuales en Main/Sub y empareja los que pertenecen al mismo conjunto. Si el LOT representativo aún no existe, sigue su procedimiento de creación correspondiente; no intentes crearlo en Lote Main Line.</small></div>
+            </article>
+          </div>
           <div class="down">↓</div>
-          <div class="decision" data-es="Si aplica Main/Sub: ¿está completo el conjunto requerido?" data-ko="Main/Sub 대상이라면: 필요한 세트가 완성됐는가?">Si aplica Main/Sub: ¿está completo el conjunto requerido?</div>
-          <div class="node success"><strong data-es="Sí → LOT individuales + Main/Sub" data-ko="예 → 대표 랏 + 개별 LOT 생성">Sí → Crear representativo + individuales</strong><small data-es="Seleccionar modelo en Lote Main Line; luego emparejar LOT representativo e individuales en Main/Sub." data-ko="Lote Main Line에서 모델을 선택해 생성한 뒤 Main/Sub에서 대표 랏과 개별 LOT를 매칭합니다.">Seleccionar modelo en Lote Main Line; luego emparejar LOT representativo e individuales en Main/Sub.</small></div>
-          <div class="node warning"><strong data-es="No → Solo LOT individuales reales" data-ko="아니요 → 실제 제품의 개별 LOT만 생성">No → Solo LOT individuales reales</strong><small data-es="No rellenar el conjunto con unidades o LOT ficticios." data-ko="없는 제품을 허수 LOT로 채워 대표 랏을 만들지 않습니다.">No rellenar el conjunto con unidades o LOT ficticios.</small></div>
-          <div class="down">↓</div>
-          <div class="node action"><strong data-es="Generar QR y escanear en el proceso correspondiente" data-ko="QR 생성 후 해당 공정에서 스캔">Generar QR y escanear en el proceso correspondiente</strong><small data-es="Confirmar que el QR leído corresponde al LOT y producto correctos." data-ko="읽힌 QR이 해당 LOT 및 제품과 일치하는지 확인합니다.">Confirmar que el QR leído corresponde al LOT y producto correctos.</small></div>
+          <div class="node action"><strong data-es="Generar QR y escanear en el proceso correspondiente" data-ko="QR 생성 후 해당 공정에서 스캔">Generar QR y escanear en el proceso correspondiente</strong><small data-es="Confirma que el QR leído corresponde al LOT y al producto reales." data-ko="스캔된 QR이 실제 LOT 및 제품과 일치하는지 확인합니다.">Confirma que el QR leído corresponde al LOT y al producto reales.</small></div>
         </div>
       </article>
     </div>
