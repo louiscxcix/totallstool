@@ -129,14 +129,30 @@ main{max-width:1160px}
       <article class="branch">
         <span class="branch-label" data-es="SÍ · LOT EXISTE" data-ko="예 · LOT 있음">SÍ · LOT EXISTE</span>
         <div class="mini-flow">
-          <div class="node"><strong data-es="Comprobar el estado del LOT" data-ko="LOT 상태 확인">Comprobar el estado del LOT</strong><small data-es="Confirma que corresponda al producto físico." data-ko="조회 LOT가 실제 제품과 일치하는지 확인합니다.">Confirma que corresponda al producto físico.</small></div>
+          <div class="node"><strong data-es="Comprobar el estado del LOT" data-ko="LOT 상태 확인">Comprobar el estado del LOT</strong><small data-es="Confirma que el LOT consultado corresponde al producto físico." data-ko="조회된 LOT가 실제 제품과 일치하는지 확인합니다.">Confirma que el LOT consultado corresponde al producto físico.</small></div>
           <div class="down">↓</div>
           <div class="decision" data-es="¿El LOT está eliminado?" data-ko="LOT가 삭제 상태인가?">¿El LOT está eliminado?</div>
-          <div class="node warning"><strong data-es="SÍ → Restaurar mediante “품위”" data-ko="예 → “품위” 절차로 복원">SÍ → Restaurar mediante “품위”</strong><small data-es="Después, volver a consultar y confirmar que está recuperado." data-ko="복원 후 다시 조회해 정상 복원됐는지 확인합니다.">Después, volver a consultar y confirmar que está recuperado.</small></div>
-          <div class="down">↓</div>
-          <div class="decision" data-es="Si no está eliminado: ¿el proceso MES coincide con el real?" data-ko="삭제되지 않았다면: MES 공정과 실제 공정이 일치하는가?">Si no está eliminado: ¿el proceso MES coincide con el real?</div>
-          <div class="node action"><strong data-es="No coincide → Enviar al proceso correspondiente" data-ko="불일치 → 해당 공정으로 보냄">No coincide → Enviar al proceso correspondiente</strong><small data-es="Comprobar el estado tras el ajuste." data-ko="조정 후 상태를 다시 확인합니다.">Comprobar el estado tras el ajuste.</small></div>
-          <div class="node success"><strong data-es="Coincide → No crear otro LOT" data-ko="일치 → 신규 LOT를 만들지 않음">Coincide → No crear otro LOT</strong><small data-es="Registrar el resultado y cerrar el caso." data-ko="결과를 기록하고 해당 건을 종료합니다.">Registrar el resultado y cerrar el caso.</small></div>
+          <div class="branches">
+            <article class="branch">
+              <span class="branch-label" data-es="SÍ · ELIMINADO" data-ko="예 · 삭제 상태">SÍ · ELIMINADO</span>
+              <div class="node warning"><strong data-es="Restaurar mediante “품위”" data-ko="“품위” 절차로 복원">Restaurar mediante “품위”</strong><small data-es="Después, vuelve a consultar el LOT y confirma que la restauración terminó correctamente." data-ko="복원 후 LOT를 다시 조회해 정상 처리됐는지 확인합니다.">Después, vuelve a consultar el LOT y confirma que la restauración terminó correctamente.</small></div>
+            </article>
+            <article class="branch">
+              <span class="branch-label" data-es="NO · NO ELIMINADO" data-ko="아니요 · 삭제 상태 아님">NO · NO ELIMINADO</span>
+              <div class="decision" data-es="¿El proceso MES coincide con el real?" data-ko="MES 공정과 실제 공정이 일치하는가?">¿El proceso MES coincide con el real?</div>
+              <div class="branches">
+                <article class="branch">
+                  <span class="branch-label" data-es="SÍ · COINCIDE" data-ko="예 · 일치">SÍ · COINCIDE</span>
+                  <div class="node success"><strong data-es="No crear otro LOT" data-ko="신규 LOT를 만들지 않음">No crear otro LOT</strong><small data-es="Registra la verificación y cierra el caso." data-ko="확인 결과를 기록하고 해당 건을 종료합니다.">Registra la verificación y cierra el caso.</small></div>
+                </article>
+                <article class="branch">
+                  <span class="branch-label" data-es="NO · DIFERENTE" data-ko="아니요 · 불일치">NO · DIFERENTE</span>
+                  <div class="node action"><strong data-es="Enviar al proceso correspondiente" data-ko="해당 공정으로 보냄">Enviar al proceso correspondiente</strong><small data-es="Después del ajuste, vuelve a comprobar que el estado del LOT y el proceso real coincidan." data-ko="조정 후 LOT 상태와 실제 공정이 일치하는지 다시 확인합니다.">Después del ajuste, vuelve a comprobar que el estado del LOT y el proceso real coincidan.</small></div>
+                </article>
+              </div>
+            </article>
+          </div>
+          <div class="node success"><strong data-es="Verificación final" data-ko="최종 확인">Verificación final</strong><small data-es="Confirmar el LOT restaurado o válido y el proceso correspondiente. No generar un LOT nuevo para reemplazar uno existente." data-ko="복원된/정상 LOT와 해당 공정을 확인합니다. 기존 LOT를 대체하려고 신규 LOT를 만들지 않습니다.">Confirmar el LOT restaurado o válido y el proceso correspondiente. No generar un LOT nuevo para reemplazar uno existente.</small></div>
         </div>
       </article>
       <article class="branch">
