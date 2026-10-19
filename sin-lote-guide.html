@@ -4,610 +4,136 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#142b3a">
-<title>SIN LOTE | Recovery Guide</title>
+<title>SIN LOTE | Process Map</title>
 <style>
-:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#172b3b;background:#f2f5f7;--navy:#142b3a;--blue:#1261d8;--cyan:#0d93a5;--line:#d5e0e6;--muted:#5d7180;--amber:#a85b13;--green:#287451;--red:#b42318}
-*{box-sizing:border-box}body{margin:0}.top{background:var(--navy);color:#fff;padding:22px clamp(16px,4vw,44px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}.mark{width:23px;height:29px;border:2px solid #5aced8;border-radius:12px 12px 3px 3px}.brand{font-weight:850;letter-spacing:.06em}.brand small{display:block;color:#afc2ce;font-size:11px;letter-spacing:.14em;margin-top:4px}.actions{margin-left:auto;display:flex;gap:8px}.actions button{border:1px solid #aebfca;border-radius:8px;padding:9px 12px;background:transparent;color:#fff;font-weight:800;cursor:pointer}.actions button[aria-pressed=true]{background:#fff;color:var(--navy)}main{max-width:1120px;margin:auto;padding:22px 16px 60px}.hero,.panel,.cause,.step,.callout,.map-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}.eyebrow,.tag{font-size:11px;letter-spacing:.12em;font-weight:850;color:var(--blue)}h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 12px}h2{margin:4px 0 10px;font-size:clamp(21px,3vw,27px)}h3{margin:0 0 8px;font-size:17px}p{line-height:1.65;margin:6px 0;color:#344c5b}.muted{color:var(--muted)}.pill{display:inline-block;background:#eaf2ff;color:#164f9d;padding:6px 9px;border-radius:99px;font-size:11px;font-weight:850;margin-right:6px}.callout{border-left:5px solid var(--amber);background:#fff9f0}.callout.blue{border-left-color:var(--blue);background:#f3f7ff}.callout.green{border-left-color:var(--green);background:#f1fbf5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cause{margin:0;padding:16px}.cause .cause-num{display:inline-grid;place-items:center;background:#eaf2ff;color:var(--blue);width:32px;height:32px;border-radius:9px;font-weight:850;margin-bottom:10px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:10px;line-height:1.55}th{background:#edf3f7;color:#243d4d}.process{display:grid;gap:12px}.map-row{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);align-items:stretch;gap:8px}.node{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#f8fafc}.node strong{display:block;color:var(--navy);margin-bottom:5px}.node small{display:block;color:var(--muted);line-height:1.5;font-size:13px}.node.start{background:#eaf7f8;border-color:#acdce0}.node.action{background:#f2f7ff;border-color:#c7daf7}.node.warning{background:#fff5e9;border-color:#f0d0a6}.node.success{background:#eff9f2;border-color:#bbdfc7}.arrow{display:grid;place-items:center;color:#6d8290;font-size:26px;font-weight:800}.decision{max-width:800px;margin:0 auto;border:2px solid #a5b9c8;background:#f1f6f9;border-radius:14px;padding:15px;text-align:center;font-weight:850;color:#193547;width:100%}.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.branch{border:1px solid var(--line);border-radius:14px;padding:14px;background:white}.branch h3{margin-bottom:8px}.branch-label{display:inline-block;background:#e8eef9;color:#2459a9;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:850;margin-bottom:9px}.mini-flow{display:grid;gap:8px}.mini-flow .node{text-align:left}.down{text-align:center;color:#8193a0;font-weight:900;font-size:22px;line-height:1}.step{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px}.num{width:36px;height:36px;background:var(--navy);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:850}.step ul,.step ol{padding-left:21px;line-height:1.7;margin:8px 0;color:#344c5b}.step li{margin:4px 0}.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--line);padding:11px;border-radius:9px;line-height:1.5}.check input{margin-top:4px;accent-color:#1261d8}.footer{font-size:12px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:15px;margin-top:24px}.print{border:1px solid var(--line);background:white;border-radius:8px;padding:10px 14px;cursor:pointer;color:var(--navy);font-weight:800}.note{font-size:13px;color:var(--muted)}.gate-lang{margin:0 0 18px}.gate-lang button{border-color:#cbd7df;color:#344c5b}.gate-lang button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}#access-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:#142b3a;color:#fff;font-family:Arial,sans-serif}#access-gate .gate-card{width:min(100%,390px);background:#fff;color:#172b3b;border-radius:18px;padding:28px;box-shadow:0 20px 60px #0004}#access-gate h2{margin:0 0 8px;font-size:24px}#access-gate p{margin:0 0 20px;color:#5d7180;line-height:1.5}#access-gate input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #cbd7df;border-radius:9px;font-size:16px;margin-bottom:12px}#access-gate .submit{width:100%;padding:13px;border:0;border-radius:9px;background:#1261d8;color:#fff;font-size:15px;font-weight:800;cursor:pointer}#access-gate .error{color:#b42318;font-size:13px;min-height:18px;margin:10px 0 0}body.gate-locked{overflow:hidden}
-@media(max-width:720px){.grid,.branches,.checklist{grid-template-columns:1fr}.map-row{grid-template-columns:1fr}.arrow{height:20px;transform:rotate(90deg)}.actions{margin-left:0;width:100%}.actions button{flex:1}.step{grid-template-columns:33px minmax(0,1fr)}.num{width:30px;height:30px}}
-@media print{body{background:#fff}.actions,.print,#access-gate{display:none!important}main{padding:0;max-width:none}.hero,.panel,.cause,.step,.callout,.map-box,.branch{break-inside:avoid;box-shadow:none}.grid,.branches{grid-template-columns:repeat(2,minmax(0,1fr))}.map-row{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)}.arrow{transform:none}}
-
-/* Visual refinement: clearer hierarchy, process decisions, and action states */
-.top{background:linear-gradient(115deg,#102533 0%,#173d52 65%,#1261d8 150%);box-shadow:0 4px 18px #10253320}
-.mark{box-shadow:0 0 0 5px #5aced81a;flex-shrink:0}
-.brand{font-size:14px}.brand small{line-height:1.5}
-main{max-width:1160px}
-.hero{position:relative;overflow:hidden;border:0;background:linear-gradient(135deg,#fff 0%,#f5f9ff 60%,#eef9fa 100%);box-shadow:0 12px 30px #142b3a0b}
-.hero:after{content:"";position:absolute;right:-72px;top:-95px;width:260px;height:260px;border-radius:50%;border:34px solid #1261d80b;pointer-events:none}
-.hero>*{position:relative;z-index:1}
-.pill{letter-spacing:.07em;line-height:1.4;margin-bottom:7px}
-.panel,.map-box{box-shadow:0 8px 26px #142b3a08}
-.cause{border-radius:14px;box-shadow:0 5px 18px #142b3a06;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
-.cause:hover{transform:translateY(-2px);box-shadow:0 12px 26px #142b3a12;border-color:#b5c8d4}
-.cause-num{box-shadow:0 0 0 5px #1261d80a;font-size:14px}.cause-num svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;margin-bottom:7px}
-.eyebrow:before{content:"";display:inline-block;width:18px;height:3px;border-radius:3px;background:#0d93a5}
-.map-box{background:linear-gradient(180deg,#f8fbfd 0%,#fff 150px);padding:clamp(14px,2.5vw,24px)}
-.process{margin-top:18px}
-.node{box-shadow:0 3px 10px #142b3a05;position:relative}
-.node strong{font-size:14px;line-height:1.45}
-.node small{font-size:13px}
-.node.start{border-left:5px solid #0d93a5}
-.node.action{border-left:5px solid #1261d8}
-.node.warning{border-left:5px solid #d89a42}
-.node.success{border-left:5px solid #2d8b57}
-.decision{box-shadow:0 5px 16px #142b3a09;line-height:1.5}
-.branch{box-shadow:0 5px 18px #142b3a07}
-.branch-label{letter-spacing:.05em}
-.down{font-size:24px;color:#7b90a0}
-.step{box-shadow:0 4px 15px #142b3a04;transition:border-color .15s ease}
-.step:hover{border-color:#c1d3df}
-.num{box-shadow:0 3px 8px #142b3a18}
-.check{transition:background .15s ease,border-color .15s ease}
-.check:has(input:checked){background:#f1fbf5;border-color:#a9d8b8}
-.check input{width:16px;height:16px;flex-shrink:0}
-.note{background:#f8fafc;border-radius:8px;padding:8px 10px}
-.print{display:inline-flex;align-items:center;gap:9px;box-shadow:0 3px 10px #142b3a0b}
-.print:before{content:"⤓";font-size:17px}
-#access-gate .gate-card{border-top:5px solid #0d93a5}
-@media(max-width:720px){.hero:after{right:-145px;top:-125px}.node strong{font-size:14px}}
-@media print{.hero:after{display:none}.cause,.panel,.map-box,.step{box-shadow:none!important}.node,.decision{box-shadow:none!important}.cause:hover,.step:hover{transform:none}}
-
-/* Industrial visual system: wiring, PCB lines, machine panels, high-contrast actions */
-.top{position:relative;isolation:isolate;overflow:hidden;background:#102b3a}
-.top:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.22;background:
-linear-gradient(90deg,transparent 0 23px,#55d1d7 24px,transparent 25px) 0 0/72px 48px,
-linear-gradient(0deg,transparent 0 23px,#55d1d7 24px,transparent 25px) 0 0/72px 48px}
-.top .mark{display:none}
-.brand{letter-spacing:.09em}
-.brand small{letter-spacing:.18em}
-.pcb-logo{width:38px;height:38px;flex:0 0 auto;color:#65d7da}
-.pcb-logo path,.pcb-logo rect,.pcb-logo circle{vector-effect:non-scaling-stroke}
-.workflow-map,.diagnostic-map{position:relative;overflow:hidden;border-top:4px solid var(--navy);background:#fff}
-.section-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
-.section-index{display:grid;place-items:center;flex:0 0 42px;height:42px;background:var(--navy);color:#fff;border-radius:5px;font-size:13px;font-weight:900;letter-spacing:.06em}
-.section-title{min-width:0}
-.section-title h2{margin:0 0 6px}
-.section-title p{margin:0;max-width:850px}
-.section-kicker{font-size:10px;letter-spacing:.16em;color:#0b7b8c;font-weight:900;margin-bottom:4px}
-.workflow-intro{display:flex;align-items:center;gap:11px;padding:12px 14px;margin:18px 0;background:#f1f7f9;border-left:4px solid #0d93a5;color:#274756;font-size:13px;line-height:1.55}
-.workflow-intro svg{width:23px;height:23px;flex:0 0 auto;color:#0d8190;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.work-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.work-card{min-width:0;position:relative;border:1px solid #cbd7de;border-radius:7px;background:#fff;padding:14px 13px 13px;box-shadow:0 2px 0 #d8e2e8;overflow:hidden}
-.work-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#0d93a5}
-.work-card:nth-child(2):before,.work-card:nth-child(5):before{background:#287451}
-.work-card:nth-child(3):before,.work-card:nth-child(6):before{background:#1261d8}
-.work-card:nth-child(4):before{background:#bc791d}
-.work-card:nth-child(7):before{background:#142b3a}
-.work-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
-.work-num{font:900 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;color:#507080;background:#edf3f6;padding:6px 7px;border-radius:3px}
-.work-card svg{width:35px;height:35px;color:#176b7b;stroke:currentColor;fill:none;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
-.work-card:nth-child(2) svg{color:#287451}
-.work-card:nth-child(3) svg,.work-card:nth-child(6) svg{color:#1261d8}
-.work-card h3{font-size:14px;line-height:1.4;min-height:39px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.015em}
-.work-card p{font-size:12px;line-height:1.55;color:#526b79;margin:0}
-.work-card .work-micro{display:block;margin-top:10px;padding-top:8px;border-top:1px dashed #c7d4dc;font:800 10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.07em;color:#1d6274}
-.work-card:nth-child(4) .work-micro{color:#9a5917}
-.flow-endpoints{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.endpoint{display:flex;gap:10px;align-items:center;border:1px solid #b9d9c4;background:#f2faf5;border-radius:6px;padding:11px 13px}
-.endpoint svg{width:25px;height:25px;flex:0 0 auto;color:#287451;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.endpoint strong{display:block;font-size:12px;letter-spacing:.04em;color:#195a38}
-.endpoint small{display:block;font-size:11px;line-height:1.4;color:#4a6d59;margin-top:3px}
-.workflow-caution{display:flex;align-items:flex-start;gap:11px;margin-top:16px;background:#fff6e9;border:1px solid #e7c997;border-left:5px solid #b9751c;border-radius:5px;padding:13px 14px}
-.workflow-caution svg{width:23px;height:23px;flex:0 0 auto;color:#a55c13;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.workflow-caution strong{display:block;font-size:12px;letter-spacing:.07em;color:#79420e;margin-bottom:3px}
-.workflow-caution p{font-size:12px;margin:0;color:#6f4e2c;line-height:1.55}
-.diagnostic-map{border-top-color:#0d93a5}
-.diagnostic-root{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:12px;background:#142b3a;color:#fff;padding:15px;border-radius:6px;margin:20px 0 12px}
-.diagnostic-root svg{width:26px;height:26px;stroke:#6bd3d7;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.diagnostic-root strong{display:block;font-size:13px;letter-spacing:.06em}
-.diagnostic-root p{margin:4px 0 0;color:#c5d6df;font-size:12px;line-height:1.45}
-.root-chip{font:900 10px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;padding:7px 9px;border:1px solid #59717e;color:#b7e5e6;border-radius:3px}
-.diagnostic-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;position:relative}
-.diag-lane{min-width:0;border:1px solid #cad6dd;border-radius:6px;background:#fff;overflow:hidden}
-.diag-lane-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#e9f1f5;border-bottom:1px solid #cad6dd}
-.diag-lane-head .lane-code{display:grid;place-items:center;width:30px;height:30px;background:#142b3a;color:#fff;font:900 12px ui-monospace,SFMono-Regular,Consolas,monospace;border-radius:4px;flex:0 0 auto}
-.diag-lane-head strong{display:block;font-size:12px;letter-spacing:.055em;text-transform:uppercase}
-.diag-lane-head small{display:block;color:#617784;font-size:11px;margin-top:3px}
-.diag-content{padding:13px}
-.diag-question{font-size:11px;letter-spacing:.065em;text-transform:uppercase;color:#435c69;font-weight:900;padding:9px 10px;background:#f2f6f8;border-left:3px solid #6e8795;margin:0 0 9px}
-.diag-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 12px}
-.diag-answer{min-width:0;padding:10px;border:1px solid #d5e0e6;border-radius:4px;background:#fbfcfd}
-.diag-answer.yes{background:#eff9f2;border-color:#b9dcc4}
-.diag-answer.no{background:#fff7ed;border-color:#e9d1aa}
-.diag-answer.blue{background:#f0f6ff;border-color:#c5d7f3}
-.answer-tag{display:inline-block;font:900 9px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.09em;padding:4px 5px;border-radius:3px;background:#e8eef2;color:#455c68;margin-bottom:7px}
-.diag-answer.yes .answer-tag{background:#d7f0df;color:#1a633b}
-.diag-answer.no .answer-tag{background:#ffebcc;color:#8e4d10}
-.diag-answer.blue .answer-tag{background:#dce9ff;color:#174e9c}
-.diag-answer strong{display:block;font-size:12px;line-height:1.4;margin-bottom:5px;color:#193344}
-.diag-answer p{font-size:11px;line-height:1.5;margin:0;color:#4e6673}
-.diag-subhead{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:#56707e;margin:13px 0 7px;padding-bottom:5px;border-bottom:1px solid #dbe4e9}
-.route-block{border:1px solid #cbd7df;border-radius:4px;padding:11px;margin-top:8px}
-.route-block.main{border-top:3px solid #1261d8}
-.route-block.external{border-top:3px solid #c0812d}
-.route-block h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 5px}
-.route-block p{font-size:11px;line-height:1.5;margin:0;color:#536b78}
-.route-block .route-step{display:flex;gap:8px;align-items:flex-start;margin-top:9px;padding-top:9px;border-top:1px dashed #c9d7df}
-.route-step-num{display:grid;place-items:center;width:21px;height:21px;background:#e3edff;color:#1c56a3;border-radius:3px;font:900 10px ui-monospace,SFMono-Regular,Consolas,monospace;flex:0 0 auto}
-.route-step strong{display:block;font-size:11px;color:#183c54;margin-bottom:3px}
-.route-step small{display:block;font-size:10px;line-height:1.45;color:#566d79}
-.join-flow{display:grid;grid-template-columns:1fr 44px 1fr;gap:9px;align-items:center;margin-top:14px;padding-top:14px;border-top:2px solid #b8cbd5}
-.join-node{display:flex;align-items:center;gap:10px;min-width:0;border:1px solid #b8d9c3;border-left:4px solid #287451;border-radius:5px;background:#f1faf4;padding:12px}
-.join-node svg{width:27px;height:27px;flex:0 0 auto;stroke:#287451;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.join-node strong{display:block;font-size:12px;color:#1b5d39}
-.join-node small{display:block;font-size:11px;color:#50715d;line-height:1.45;margin-top:3px}
-.join-arrow{font-size:22px;text-align:center;color:#6f8997;font-weight:900}
-@media(max-width:900px){.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diagnostic-split{grid-template-columns:1fr}.work-card h3{min-height:0}}
-@media(max-width:560px){.work-grid,.flow-endpoints,.diag-options,.join-flow{grid-template-columns:1fr}.section-head{gap:10px}.section-index{flex-basis:36px;height:36px}.diagnostic-root{grid-template-columns:30px minmax(0,1fr)}.root-chip{grid-column:2;justify-self:start}.join-arrow{transform:rotate(90deg)}.workflow-intro{align-items:flex-start}}
-@media print{
- .top:after{display:none}.workflow-map,.diagnostic-map{border:1px solid #aebec7;border-top:3px solid #142b3a}
- .work-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.work-card{padding:9px 8px;box-shadow:none;break-inside:avoid}.work-card svg{width:28px;height:28px}.work-card p{font-size:10px}
- .diagnostic-split{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.diag-options{gap:5px}.diag-answer{padding:7px}.diag-answer p,.route-block p{font-size:9px}
- .diag-lane,.route-block,.endpoint,.join-node{break-inside:avoid}.section-head,.diagnostic-root{break-inside:avoid}
-}
-
-
-/* Click-through troubleshooting assistant */
-#interactive-triage{margin:20px 0 24px;border:1px solid #bfced7;border-top:5px solid #0d93a5;border-radius:10px;background:#fff;overflow:hidden;box-shadow:0 8px 24px #142b3a0a}
-.triage-head{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:linear-gradient(120deg,#eef7f9,#fff);border-bottom:1px solid #d7e1e7}
-.triage-icon{width:44px;height:44px;flex:0 0 auto;display:grid;place-items:center;border-radius:6px;background:#142b3a;color:#75d5d9}
-.triage-icon svg{width:27px;height:27px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.triage-title-wrap{min-width:0}.triage-kicker{font-size:10px;letter-spacing:.15em;font-weight:900;color:#087c8a;margin:0 0 5px}.triage-title-wrap h2{font-size:clamp(20px,3vw,27px);margin:0 0 6px}.triage-title-wrap p{font-size:13px;color:#516977;line-height:1.55;margin:0}
-.triage-content{padding:19px 22px 22px}.triage-meta{display:flex;align-items:center;gap:9px;margin-bottom:13px}.triage-step-chip{background:#142b3a;color:#fff;padding:6px 9px;border-radius:4px;font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.1em}.triage-dot{width:7px;height:7px;border-radius:50%;background:#22a06b;box-shadow:0 0 0 4px #22a06b18}.triage-meta-label{font-size:10px;letter-spacing:.12em;font-weight:900;color:#617985}
-.triage-crumbs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 15px}.triage-crumb{border:1px solid #d3dfe5;background:#f8fafb;border-radius:4px;padding:5px 8px;font-size:10px;color:#58717e}.triage-crumb:before{content:"✓";color:#287451;font-weight:900;margin-right:6px}
-.triage-question{font-size:clamp(18px,2.4vw,22px);line-height:1.4;margin:0 0 6px;color:#172f3f}.triage-help{font-size:12px;color:#5d7481;line-height:1.55;margin:0 0 15px}
-.triage-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.triage-option{display:flex;align-items:center;gap:12px;width:100%;min-width:0;padding:13px;text-align:left;border:1px solid #cad7de;border-radius:6px;background:#fff;box-shadow:0 2px 0 #e1e8ec;color:#183547;cursor:pointer;transition:background .14s,border-color .14s,transform .14s}.triage-option:hover,.triage-option:focus-visible{background:#f2f9fa;border-color:#0d93a5;transform:translateY(-1px);outline:2px solid #0d93a522;outline-offset:1px}.triage-mark{width:33px;height:33px;display:grid;place-items:center;flex:0 0 auto;border-radius:5px;background:#e8f0f4;color:#315b6f;font:900 11px ui-monospace,Consolas,monospace}.triage-option[data-tone="warning"] .triage-mark{background:#fff0d8;color:#89530e}.triage-option[data-tone="success"] .triage-mark{background:#e0f3e7;color:#1f7042}.triage-option-copy{min-width:0;flex:1}.triage-option-copy strong{display:block;font-size:12px;line-height:1.45;margin-bottom:4px}.triage-option-copy small{display:block;font-size:11px;line-height:1.45;color:#647b87}.triage-arrow{font-size:19px;color:#77909d}
-.triage-result{border:1px solid #cad7de;border-radius:7px;overflow:hidden;background:#fbfcfd}.triage-result[hidden]{display:none}.triage-result-band{height:5px;background:#1261d8}.triage-result[data-tone="success"] .triage-result-band{background:#287451}.triage-result[data-tone="warning"] .triage-result-band{background:#bf8127}.triage-result[data-tone="hold"] .triage-result-band{background:#b42318}.triage-result-body{padding:17px}.triage-status{display:inline-block;font:900 10px ui-monospace,Consolas,monospace;letter-spacing:.1em;padding:6px 8px;border-radius:3px;background:#e4efff;color:#164e9a;margin-bottom:10px}.triage-result[data-tone="success"] .triage-status{background:#def3e5;color:#1c693d}.triage-result[data-tone="warning"] .triage-status{background:#fff0d8;color:#87500e}.triage-result[data-tone="hold"] .triage-status{background:#fee9e7;color:#9e2119}.triage-result-body h3{font-size:19px;line-height:1.35;margin:0 0 8px;color:#172f3f}.triage-result-body p{font-size:13px;line-height:1.65;margin:0 0 10px;color:#405a68}.triage-rule{padding:11px 12px;margin-top:12px;border-left:4px solid #bf8127;background:#fff6e9;color:#6c4b22;font-size:12px;line-height:1.55}.triage-result[data-tone="success"] .triage-rule{border-left-color:#287451;background:#eff9f2;color:#315e40}.triage-result[data-tone="hold"] .triage-rule{border-left-color:#b42318;background:#fff1f0;color:#8b2822}.triage-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.triage-action{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:39px;padding:10px 12px;border:1px solid #142b3a;border-radius:5px;font-size:11px;font-weight:900;cursor:pointer}.triage-action.primary{background:#142b3a;color:#fff}.triage-action.secondary{background:#fff;color:#294b5b;border-color:#c8d6de}
-.triage-nav{display:flex;justify-content:space-between;gap:10px;margin-top:15px;padding-top:12px;border-top:1px solid #e0e7eb}.triage-nav button{border:0;background:transparent;padding:7px 0;color:#326070;font-size:11px;font-weight:850;cursor:pointer}.triage-nav button:disabled{opacity:.3;cursor:not-allowed}.triage-nav .reset{color:#637b87}.triage-alert{display:flex;align-items:flex-start;gap:9px;margin-top:14px;font-size:11px;line-height:1.55;color:#536c79}.triage-alert svg{width:17px;height:17px;flex:0 0 auto;stroke:#0d8792;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:650px){.triage-head,.triage-content{padding:15px}.triage-options{grid-template-columns:1fr}.triage-icon{width:38px;height:38px}}
-@media print{#interactive-triage{display:none!important}}
-
-
-/* Editorial operator interface */
-body{background:#f5f7f8;color:#102c39;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif}
-.app-shell{display:grid;grid-template-columns:228px minmax(0,1fr);min-height:100vh}.side-rail{position:sticky;top:0;height:100vh;overflow:auto;display:flex;flex-direction:column;padding:23px 12px 15px;background:#102936;color:#edf4f5}.side-brand{display:flex;align-items:center;gap:10px;padding:3px 9px 23px;border-bottom:1px solid #ffffff1a}.side-pcb{width:34px;height:34px;color:#6bd2b6;flex:0 0 auto}.side-pcb svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.side-brand strong{display:block;font-size:15px;font-weight:800;letter-spacing:-.03em}.side-brand small{display:block;color:#91aab4;font-size:8px;letter-spacing:.14em;margin-top:5px}.side-label{font-size:9px;letter-spacing:.16em;color:#7895a0;font-weight:900;margin:24px 10px 9px}.side-nav{display:grid;gap:4px}.side-nav-link{display:flex;align-items:center;gap:10px;padding:10px;border-radius:5px;color:#c4d2d8;text-decoration:none}.side-nav-link:hover,.side-nav-link.active{background:#244956;color:#fff}.side-nav-link.active{box-shadow:inset 3px 0 #6bd2b6}.side-nav-icon{display:grid;place-items:center;width:27px;height:27px;flex:0 0 auto;border:1px solid #58717d;border-radius:4px;color:#8edac8;font:850 9px ui-monospace,Consolas,monospace}.side-nav-link b{display:block;font-size:10px;line-height:1.4}.side-nav-link small{display:block;margin-top:3px;font-size:9px;color:#8faab4}.side-spacer{flex:1;min-height:20px}.side-principle{display:flex;gap:9px;padding:11px 9px;margin:12px 3px;border:1px solid #ffffff20;border-radius:5px;background:#173846}.side-principle i{width:7px;height:7px;margin-top:4px;flex:0 0 auto;border-radius:50%;background:#6bd2b6}.side-principle strong{font-size:8px;color:#70d6bf;letter-spacing:.1em}.side-principle p{font-size:10px;line-height:1.55;color:#c4d4db;margin:4px 0 0}.side-bottom{display:grid;gap:8px}.side-language{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;border:1px solid #4e6d79;border-radius:5px}.side-language button{border:0;border-radius:4px;background:transparent;color:#c4d5db;padding:8px 4px;font-size:10px;font-weight:700}.side-language button[aria-pressed=true]{background:#edf6f3;color:#153b49}.side-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.side-action{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #496a77;border-radius:4px;padding:8px 2px;background:transparent;color:#d6e2e6;font-size:9px}.side-action b{color:#83d6c3;font-size:13px}
-.content-shell{min-width:0}.top{min-height:49px;padding:0 clamp(20px,3.5vw,52px);background:#fff;color:#73848c;border-bottom:1px solid #e0e6e9;box-shadow:none;display:flex;align-items:center}.top:after,.top .pcb-logo{display:none}.top .brand{font-size:9px;color:#526c79;letter-spacing:.1em}.top .brand small{display:none}main{width:100%;max-width:1500px;margin:0 auto;padding:0 clamp(20px,3.5vw,52px) 50px}
-.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(190px,.75fr);gap:25px;align-items:center;padding:42px 0 32px;border:0;border-bottom:1px solid #dce5e8;border-radius:0;background:transparent;box-shadow:none;margin:0;overflow:hidden}.hero:after{display:none}.hero-copy{min-width:0}.hero h1{font-size:clamp(42px,5vw,66px);letter-spacing:-.065em;line-height:1;margin:0 0 14px;font-weight:780;color:#102c39}.hero p{max-width:640px;margin:0;color:#657b86;font-size:13px;line-height:1.8}.hero .eyebrow{color:#148269;font-size:9px;letter-spacing:.16em;margin:0 0 14px}.hero-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px}.hero-steps>span:not(.hero-divider){display:flex;align-items:center;gap:6px;color:#647985;font-size:10px}.hero-steps b{font-size:10px;color:#167e65}.hero-steps i{font-style:normal}.hero-divider{height:1px;width:18px;background:#cbd8dc}.hero-rule{display:flex;align-items:flex-start;gap:9px;margin-top:20px;padding:11px 13px;border:1px solid #dce8e3;background:#f7fbf8;border-radius:5px;max-width:660px}.hero-rule>span{width:21px;height:21px;display:grid;place-items:center;flex:0 0 auto;background:#dff2e9;color:#17775d;border-radius:4px;font-weight:900}.hero-rule p{display:grid;gap:3px;font-size:10px;line-height:1.5;color:#617970;margin:0}.hero-rule strong{color:#1a6c55;font-size:10px}.hero-board{justify-self:end;width:min(100%,330px)}.hero-board svg{display:block;width:100%;height:auto}.board-caption{display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-top:3px;color:#679285;font-size:8px;letter-spacing:.09em}.board-caption span{width:25px;height:2px;background:#168568}.board-caption i{font-style:normal}
-.section{margin-top:33px;scroll-margin-top:18px}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:15px}.section-titleline{display:flex;align-items:flex-start;gap:12px}.section-index{display:grid;place-items:center;width:31px;height:31px;flex:0 0 auto;border-radius:4px;background:#143543;color:#72d5ba;font-size:10px;font-weight:900}.section-title h2{font-size:clamp(22px,2.5vw,31px);line-height:1.17;letter-spacing:-.04em;margin:0 0 5px;color:#102c39}.section-title p{color:#6d818b;font-size:11px;line-height:1.6;margin:0;max-width:850px}.section-kicker{font-size:9px;letter-spacing:.15em;font-weight:900;color:#12836a;margin:0 0 5px}.section-aux{font-size:9px;color:#7b8d95;letter-spacing:.08em;white-space:nowrap}
-.workflow-map,.diagnostic-map{margin:0 0 14px;border:0;border-top:1px solid #dce5e8;border-radius:0;box-shadow:none;background:transparent;padding:23px 0 0}.workflow-map .section-head,.diagnostic-map .section-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:15px}.workflow-map .section-title h2,.diagnostic-map .section-title h2{font-size:clamp(24px,2.7vw,32px);letter-spacing:-.045em}.workflow-intro{margin:11px 0;padding:10px 12px;background:#edf7f3;border-left:3px solid #19866b;color:#426d60;font-size:10px;line-height:1.6;display:flex;align-items:center;gap:9px}.workflow-intro svg{width:20px;height:20px;flex:0 0 auto;stroke:#19866b;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}.work-card{position:relative;min-height:135px;padding:14px;border:1px solid #dce5e8;border-radius:5px;background:#fff;box-shadow:none;cursor:pointer;transition:border-color .14s,background .14s,transform .14s}.work-card:hover,.work-card:focus-visible{border-color:#76c0aa;background:#fbfefc;transform:translateY(-1px);outline:2px solid #19866b20;outline-offset:1px}.work-card:after{content:"↗";position:absolute;right:11px;top:10px;color:#a0b1b9;font-size:13px}.work-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}.work-num{background:#eff3f5;color:#5d7681;border-radius:3px;padding:5px 6px;font:850 9px ui-monospace,Consolas,monospace}.work-card svg{width:29px;height:29px;color:#16856a;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.work-card h3{font-size:12px;font-weight:770;line-height:1.4;margin:0 20px 5px 0;color:#163544}.work-card p{color:#6e838d;font-size:10px;line-height:1.55;margin:0}.work-micro{display:inline-block;margin-top:9px;padding-top:7px;border-top:1px solid #e8edef;color:#16856a;font:800 8px ui-monospace,Consolas,monospace;letter-spacing:.07em}.decision{border-radius:5px;box-shadow:none;font-size:12px}.branches{gap:9px}.branch{border:1px solid #dce5e8;border-radius:5px;box-shadow:none;padding:11px}.node{border-radius:5px;box-shadow:none;padding:10px 11px}.node strong{font-size:11px}.node small{font-size:10px}.branch-label{border-radius:3px;font-size:9px;letter-spacing:.07em}.down{font-size:18px}.workflow-caution{margin-top:13px;border-radius:5px;padding:11px 12px}
-.procedure-panel{padding:22px 0 0;background:transparent;border:0;border-top:1px solid #dce5e8;border-radius:0;box-shadow:none;margin:30px 0 0}.procedure-panel>.eyebrow{color:#16856a;font-size:9px}.procedure-panel>h2{font-size:clamp(24px,2.7vw,32px);letter-spacing:-.04em;margin:0 0 14px}.step-accordion{display:block;margin:0 0 7px;padding:0;border:1px solid #dbe4e8;border-radius:5px;background:#fff;box-shadow:none;overflow:hidden}.step-accordion[open]{border-color:#9ccfbe}.step-summary{display:flex;align-items:center;gap:11px;padding:12px 14px;cursor:pointer;list-style:none}.step-summary::-webkit-details-marker{display:none}.step-summary .num{width:31px;height:31px;flex:0 0 auto;display:grid;place-items:center;border-radius:5px;background:#eef3f5;color:#456675;box-shadow:none;font-size:10px}.step-accordion[open]>.step-summary .num{background:#16856a;color:#fff}.step-summary-heading{min-width:0;flex:1}.step-summary h3{font-size:12px;line-height:1.5;margin:0;color:#143342}.step-summary small{display:block;font-size:9px;line-height:1.4;color:#84959d;margin-top:3px}.step-chevron{font-size:18px;color:#6a8792;line-height:1}.step-accordion[open] .step-chevron{transform:rotate(45deg);color:#16856a}.step-detail-body{padding:0 16px 15px 57px;color:#455e69}.step-detail-body p{font-size:11px;line-height:1.75;color:#4a6470;margin:7px 0}.step-detail-body ul,.step-detail-body ol{font-size:11px;line-height:1.7;padding-left:18px;margin:8px 0 5px;color:#4a6470}.step-detail-body li{margin:5px 0;padding-left:3px}.step-detail-body li::marker{color:#18866b}
-#diagnosis{margin-top:31px;border:1px solid #dbe4e8;border-top:3px solid #16856a;border-radius:6px;background:#fff;overflow:hidden;box-shadow:none;scroll-margin-top:18px}.triage-head{padding:15px 18px;background:#f8fafb;border-bottom:1px solid #e4eaed}.triage-icon{border-radius:5px;background:#143543;color:#6bd2b7}.triage-kicker{color:#16856a;font-size:9px}.triage-title-wrap h2{font-size:20px;letter-spacing:-.035em}.triage-title-wrap p{font-size:11px}.triage-content{padding:16px 18px}.triage-option{box-shadow:none;border-radius:5px}.triage-option:hover{transform:none}.triage-result{border-radius:5px}.triage-actions button{border-radius:4px}
-.cause-panel{scroll-margin-top:18px}.cause-panel .accordion-list{display:grid;grid-template-columns:1fr;gap:7px}.cause-accordion{display:block;margin:0;padding:0;border:1px solid #dce5e8;border-radius:5px;background:#fff;box-shadow:none;overflow:hidden}.cause-accordion:hover,.cause-accordion[open]{border-color:#b4d4c9}.cause-summary{display:flex;align-items:center;gap:11px;padding:12px 14px;list-style:none;cursor:pointer}.cause-summary::-webkit-details-marker{display:none}.cause-summary .cause-num{width:29px;height:29px;display:grid;place-items:center;flex:0 0 auto;border-radius:4px;background:#eef3f5;color:#426674;box-shadow:none;margin:0}.cause-summary .cause-num svg{width:15px;height:15px}.cause-accordion[open] .cause-num{background:#e3f4ec;color:#16856a}.cause-summary-copy{min-width:0;flex:1}.cause-summary-copy h3{font-size:12px;line-height:1.5;font-weight:750;margin:0;color:#153542}.cause-summary-copy small{display:block;color:#81939b;font-size:9px;line-height:1.4;margin-top:3px}.cause-chevron{font-size:18px;line-height:1;color:#78909a}.cause-accordion[open] .cause-chevron{transform:rotate(45deg);color:#16856a}.cause-accordion-body{padding:0 16px 14px 55px;color:#526a75;font-size:11px;line-height:1.7}.cause-accordion-body p{font-size:11px;line-height:1.7;color:#526a75;margin:6px 0}.cause-accordion-body .note{background:#f7f9fa;border-radius:4px;padding:8px 10px;color:#637982;font-size:10px}
-.final-check-panel{padding-bottom:0}.final-check-panel .checklist{gap:7px}.final-check-panel .check{padding:10px 11px;border-radius:5px;background:#fff;border-color:#dce5e8;font-size:10px}.final-check-panel .check:has(input:checked){background:#f0f9f4;border-color:#a9d8b9}.final-check-panel .check input{accent-color:#16856a}.callout{box-shadow:none;border-radius:5px;padding:12px 14px;margin:13px 0}.callout strong{font-size:10px;letter-spacing:.06em}.callout p{font-size:11px;line-height:1.65}.footer{margin-top:28px;padding-top:13px;border-color:#dce5e8;color:#8998a0;font-size:9px}
-@media(max-width:1050px){.app-shell{grid-template-columns:205px minmax(0,1fr)}.side-rail{padding:19px 10px 12px}.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-board{width:250px}main{padding-left:24px;padding-right:24px}.branches{grid-template-columns:1fr}.branch .branches{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:740px){.app-shell{display:block}.side-rail{height:auto;position:relative;overflow:visible;padding:11px 13px 9px}.side-brand{padding:0 4px 9px;border:0}.side-pcb{width:28px;height:28px}.side-brand strong{font-size:13px}.side-brand small{font-size:8px;margin-top:3px}.side-label,.side-spacer,.side-principle{display:none}.side-nav{display:flex;overflow-x:auto;gap:4px;padding:2px 0 8px}.side-nav-link{flex:0 0 auto;padding:7px 8px;gap:6px}.side-nav-icon{width:22px;height:22px;font-size:8px}.side-nav-link b{font-size:9px}.side-nav-link small{display:none}.side-bottom{grid-template-columns:1fr 1fr;gap:6px}.side-language button{padding:6px 2px;font-size:9px}.side-action{font-size:9px;padding:7px 2px}.top{min-height:37px;padding:0 15px}.top .brand{font-size:8px}main{padding:0 15px 35px}.hero{padding:29px 0 23px;grid-template-columns:1fr}.hero-board{display:none}.hero h1{font-size:43px}.hero p{font-size:12px}.hero-rule{margin-top:15px}.section{margin-top:25px}.workflow-map,.diagnostic-map{padding-top:18px}.work-grid{grid-template-columns:1fr 1fr;gap:7px}.work-card{min-height:122px;padding:10px}.work-card h3{font-size:11px}.work-card p{font-size:9px}.section-heading{align-items:flex-start}.section-aux{display:none}.detail-body{grid-template-columns:1fr;padding:10px}.branches,.branch .branches{grid-template-columns:1fr}.step-summary{padding:10px}.step-detail-body{padding:0 12px 13px}.cause-summary{padding:10px}.cause-accordion-body{padding:0 12px 13px}.triage-head,.triage-content{padding:13px}.triage-options{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}.footer{flex-direction:column}}
-@media(max-width:420px){.work-grid{grid-template-columns:1fr}.workflow-map .section-head,.diagnostic-map .section-head{gap:9px}.section-index{width:28px;height:28px}.hero h1{font-size:38px}.hero-steps{gap:7px}.hero-divider{width:9px}.detail-title-row{gap:9px}.detail-big-num{font-size:27px}.side-nav-link{padding:6px}.side-nav-link b{font-size:8px}}
-@media print{.app-shell{display:block}.side-rail,.top,.triage-head,.triage-nav,.triage-actions,#access-gate{display:none!important}main{max-width:none;padding:0}.hero{padding:12px 0 10px;grid-template-columns:1fr}.hero-board{display:none}.hero h1{font-size:25px}.hero p{font-size:9px}.section{margin-top:15px}.workflow-map,.diagnostic-map{padding-top:10px}.work-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.work-card{min-height:0;padding:7px;break-inside:avoid}.work-card p{font-size:8px}.procedure-panel,.panel{margin-top:16px;padding-top:12px}.step-accordion,.cause-accordion{break-inside:avoid;box-shadow:none}.step-accordion:not([open])>.step-detail-body,.cause-accordion:not([open])>.cause-accordion-body{display:block!important}.step-summary,.cause-summary{padding:7px}.step-summary small,.cause-summary-copy small,.step-chevron,.cause-chevron{display:none}.step-detail-body,.cause-accordion-body{display:block!important;padding:0 9px 8px 40px}.step-detail-body p,.step-detail-body li,.cause-accordion-body p{font-size:8px}.checklist{grid-template-columns:repeat(2,minmax(0,1fr))}.final-case{break-inside:avoid}}
-
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#172b3b;background:#f3f6f8;--navy:#142b3a;--blue:#155eef;--teal:#087e8b;--green:#237447;--amber:#a85b13;--red:#b42318;--line:#ccd8df;--muted:#526a78}
+*{box-sizing:border-box}body{margin:0;font-size:18px;line-height:1.5}.top{background:var(--navy);color:#fff;padding:20px clamp(16px,4vw,42px);display:flex;align-items:center;gap:15px;flex-wrap:wrap}.brand{font-weight:900;font-size:16px;letter-spacing:.08em}.brand small{display:block;font-size:12px;letter-spacing:.12em;color:#bed0da;margin-top:3px}.actions{margin-left:auto;display:flex;gap:9px;flex-wrap:wrap}.btn{border:2px solid #9aafbb;border-radius:8px;padding:10px 15px;background:transparent;color:inherit;font-size:16px;font-weight:850;cursor:pointer}.btn[aria-pressed=true]{background:#fff;color:var(--navy);border-color:#fff}.btn.print{background:#fff;color:var(--navy);border-color:#fff}main{max-width:1180px;margin:auto;padding:20px 16px 60px}.hero{background:#fff;border:2px solid var(--line);border-top:8px solid var(--teal);border-radius:12px;padding:clamp(20px,4vw,34px);margin-bottom:18px}.eyebrow{font-size:13px;font-weight:900;letter-spacing:.13em;color:var(--teal);text-transform:uppercase}.hero h1{font-size:clamp(34px,5vw,52px);line-height:1.08;margin:7px 0 12px}.hero p{font-size:21px;line-height:1.45;max-width:950px;margin:0;color:#405966}.rule{margin-top:18px;padding:16px 18px;background:#fff4e5;border-left:7px solid #b9751c;border-radius:7px;font-size:19px;font-weight:850;color:#7a430e}.section{background:#fff;border:2px solid var(--line);border-radius:12px;padding:clamp(16px,3vw,28px);margin:18px 0}.section-head{display:flex;gap:13px;align-items:flex-start;margin-bottom:20px}.section-num{flex:0 0 46px;height:46px;display:grid;place-items:center;background:var(--navy);color:white;border-radius:8px;font-size:19px;font-weight:900}.section-head h2{font-size:clamp(26px,3vw,34px);line-height:1.15;margin:0 0 5px}.section-head p{font-size:18px;color:var(--muted);margin:0}.flow{display:grid;gap:0}.flow-step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:15px;align-items:stretch}.flow-number{display:flex;flex-direction:column;align-items:center}.circle{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#fff;font-weight:950;font-size:24px;border:4px solid #dce8ff}.connector{width:4px;flex:1;min-height:20px;background:#9ab6d2}.flow-content{border:2px solid #cfdae2;border-left:7px solid var(--blue);border-radius:9px;padding:17px 20px;margin-bottom:12px;background:#fbfdff}.flow-content h3{font-size:24px;line-height:1.2;margin:0 0 6px}.flow-content p{font-size:18px;margin:0;color:#465e6b}.flow-content.start{border-left-color:var(--teal);background:#f0fafb}.flow-content.start .circle{background:var(--teal)}.flow-content.decision{border-left-color:#b9751c;background:#fff8ed}.flow-content.end{border-left-color:var(--green);background:#f1faf4}.flow-content.end h3{color:#1a633b}.fork-label{font-size:13px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;color:#526a78;margin:20px 0 10px}.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.branch{border:2px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.branch-head{padding:16px 18px;color:white;background:var(--green)}.branch.no .branch-head{background:var(--blue)}.branch-head span{display:block;font-size:13px;letter-spacing:.14em;font-weight:900;opacity:.9}.branch-head h3{font-size:25px;line-height:1.15;margin:5px 0 0}.branch-body{padding:16px;display:grid;gap:12px}.action-card{border:1px solid #d1dce3;border-radius:8px;padding:14px 15px;background:#f9fbfc}.action-card h4{font-size:20px;line-height:1.25;margin:0 0 6px}.action-card p{font-size:17px;line-height:1.45;margin:0;color:#405966}.action-card.restore{border-left:6px solid #b9751c;background:#fff8ed}.action-card.correct{border-left:6px solid var(--blue)}.action-card.ok{border-left:6px solid var(--green);background:#f3faf5}.action-card strong{color:#172b3b}.route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.route{border:2px solid var(--line);border-radius:10px;padding:18px}.route h3{font-size:23px;line-height:1.2;margin:0 0 8px}.route p{font-size:17px;line-height:1.5;margin:0 0 12px;color:#435c69}.route ul{margin:0;padding-left:23px}.route li{font-size:17px;line-height:1.5;margin:7px 0}.route.main{border-top:7px solid var(--blue)}.route.external{border-top:7px solid #b9751c}.special{border:2px solid #e6c68f;background:#fff8ed;border-radius:10px;padding:19px;margin-top:16px}.special h3{font-size:22px;margin:0 0 8px;color:#79420e}.special p{font-size:18px;margin:0 0 9px}.special p:last-child{margin-bottom:0}.finish-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.finish{border:2px solid #b9d9c4;background:#f2faf5;border-radius:9px;padding:15px;font-size:18px;font-weight:850;color:#205e3b}.finish span{display:block;font-size:13px;color:#4b6e59;font-weight:600;margin-top:4px}.mini{font-size:14px;color:var(--muted);margin-top:14px}.footer{color:#617784;font-size:14px;margin:20px 3px 0;padding-top:14px;border-top:1px solid var(--line)}#access-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:#142b3a;color:#172b3b}#access-gate .gate-card{width:min(100%,430px);background:#fff;border-radius:15px;border-top:8px solid var(--teal);padding:28px;box-shadow:0 24px 65px #0005}#access-gate h2{font-size:28px;margin:0 0 7px}#access-gate p{font-size:17px;line-height:1.5;color:var(--muted);margin:0 0 18px}#access-gate input{width:100%;padding:15px;border:2px solid var(--line);border-radius:8px;font-size:20px;margin-bottom:12px}#access-gate .submit{width:100%;padding:15px;background:var(--blue);color:white;border:0;border-radius:8px;font-size:18px;font-weight:900;cursor:pointer}#access-gate .error{color:var(--red);min-height:22px;font-size:15px;margin-top:8px}body.gate-locked{overflow:hidden}
+@media(max-width:760px){.branches,.route-grid{grid-template-columns:1fr}.finish-list{grid-template-columns:1fr}.actions{width:100%;margin-left:0}.actions .btn{flex:1}.flow-step{grid-template-columns:48px minmax(0,1fr);gap:9px}.circle{width:44px;height:44px;font-size:20px}.flow-content{padding:14px}.flow-content h3{font-size:21px}.branch-head h3{font-size:23px}}
+@media print{@page{size:A4 portrait;margin:10mm}body{background:#fff;font-size:12pt}.top{padding:8px 0;background:#fff;color:#142b3a;border-bottom:2px solid #142b3a}.actions,#access-gate{display:none!important}main{padding:8px 0;max-width:none}.hero,.section{padding:12px;margin:8px 0;break-inside:avoid}.hero h1{font-size:27pt}.hero p,.rule{font-size:13pt}.section-head h2{font-size:19pt}.flow-content{padding:9px;margin-bottom:6px}.flow-content h3{font-size:14pt}.flow-content p,.action-card p,.route p,.route li,.special p{font-size:10pt}.branches,.route-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.branch-body{padding:8px;gap:7px}.action-card,.route,.special{padding:9px}.action-card h4,.route h3,.special h3{font-size:12pt}.finish-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.finish{font-size:10pt;padding:8px}.connector{min-height:10px}.footer{font-size:9pt}}
 </style>
 </head>
-<body>
-<div class="app-shell">
-<aside class="side-rail">
-<div class="side-brand"><div class="side-pcb"><svg viewBox="0 0 40 40"><rect x="9" y="9" width="22" height="22" rx="3"/><rect x="14" y="14" width="12" height="12" rx="1"/><path d="M14 3v6M20 3v6M26 3v6M14 31v6M20 31v6M26 31v6M3 14h6M3 20h6M3 26h6M31 14h6M31 20h6M31 26h6"/><circle cx="20" cy="20" r="2"/></svg></div><div><strong>SIN LOTE</strong><small>RECOVERY GUIDE</small></div></div>
-<div class="side-label" data-es="CONTENIDO" data-ko="목차">CONTENIDO</div>
-<nav class="side-nav">
-<a class="side-nav-link active" href="#work-sequence"><span class="side-nav-icon">01</span><span><b data-es="Orden de trabajo" data-ko="작업 순서">Orden de trabajo</b><small data-es="Flujo completo" data-ko="전체 작업 흐름">Flujo completo</small></span></a>
-<a class="side-nav-link" href="#detailed-procedure"><span class="side-nav-icon">02</span><span><b data-es="Instrucciones detalladas" data-ko="세부 작업 방법">Instrucciones detalladas</b><small data-es="Abrir cada etapa" data-ko="단계별 확인">Abrir cada etapa</small></span></a>
-<a class="side-nav-link" href="#diagnosis"><span class="side-nav-icon">03</span><span><b data-es="Diagnóstico interactivo" data-ko="인터랙티브 진단">Diagnóstico interactivo</b><small data-es="Elegir una condición" data-ko="상태별 해결">Elegir una condición</small></span></a>
-<a class="side-nav-link" href="#root-causes"><span class="side-nav-icon">04</span><span><b data-es="Análisis de causa" data-ko="원인 분석">Análisis de causa</b><small data-es="Expandir / contraer" data-ko="펼치기 / 접기">Expandir / contraer</small></span></a>
-<a class="side-nav-link" href="#final-check"><span class="side-nav-icon">05</span><span><b data-es="Control final" data-ko="최종 확인">Control final</b><small data-es="Cerrar el caso" data-ko="건 종료">Cerrar el caso</small></span></a></nav>
-<div class="side-spacer"></div><div class="side-principle"><i></i><div><strong data-es="REGLA DE TRABAJO" data-ko="핵심 작업 규칙">REGLA DE TRABAJO</strong><p data-es="Consultar primero. Actuar después. No crear LOT ficticios." data-ko="먼저 조회하고 조치합니다. 허수 LOT는 생성하지 않습니다.">Consultar primero. Actuar después. No crear LOT ficticios.</p></div></div>
-<div class="side-bottom"><nav class="side-language" aria-label="Language"><button class="lang-btn" data-lang="ko" aria-pressed="false" type="button">한국어</button><button class="lang-btn" data-lang="es" aria-pressed="true" type="button">Español</button></nav><div class="side-actions"><button class="side-action" type="button" onclick="window.print()"><b>↓</b><span data-es="Guardar PDF" data-ko="PDF 저장">Guardar PDF</span></button><button class="side-action" type="button" onclick="window.print()"><b>↗</b><span data-es="Imprimir" data-ko="인쇄">Imprimir</span></button></div></div>
-</aside><div class="content-shell">
+<body class="gate-locked">
+<div id="access-gate">
+ <form class="gate-card" id="gate-form">
+  <h2 data-es="Guía SIN LOTE" data-ko="SIN LOTE 가이드">Guía SIN LOTE</h2>
+  <p data-es="Introduce la contraseña para consultar el proceso paso a paso." data-ko="단계별 작업 절차를 확인하려면 비밀번호를 입력하세요.">Introduce la contraseña para consultar el proceso paso a paso.</p>
+  <input id="gate-password" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Contraseña / 비밀번호" aria-label="Contraseña">
+  <button class="submit" type="submit" data-es="ENTRAR" data-ko="입장">ENTRAR</button>
+  <div id="gate-error" class="error" role="alert"></div>
+ </form>
+</div>
 <header class="top">
-  <svg class="pcb-logo" viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="9" width="22" height="22" rx="3" stroke="currentColor" fill="none" stroke-width="1.8"/><rect x="14" y="14" width="12" height="12" rx="1" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M14 3v6M20 3v6M26 3v6M14 31v6M20 31v6M26 31v6M3 14h6M3 20h6M3 26h6M31 14h6M31 20h6M31 26h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="20" r="2" fill="currentColor"/></svg>
-  <div class="brand">LS PRODUCTION · SIN LOTE<small>RECOVERY WORK INSTRUCTION</small></div>
+ <div class="brand">SIN LOTE <small data-es="GUÍA DE RECUPERACIÓN · PROCESS MAP" data-ko="복구 가이드 · PROCESS MAP">GUÍA DE RECUPERACIÓN · PROCESS MAP</small></div>
+ <div class="actions">
+  <button class="btn" id="lang-es" type="button" aria-pressed="true">ES</button>
+  <button class="btn" id="lang-ko" type="button" aria-pressed="false">한국어</button>
+  <button class="btn print" type="button" onclick="window.print()" data-es="IMPRIMIR / PDF" data-ko="인쇄 / PDF">IMPRIMIR / PDF</button>
+ </div>
 </header>
 <main>
-<section class="hero" id="guide-intro">
-<div class="hero-copy">
- <span class="eyebrow" data-es="GUÍA OPERATIVA · GMS / MES" data-ko="현장 작업 가이드 · GMS / MES">GUÍA OPERATIVA · GMS / MES</span>
- <h1 data-es="SIN LOTE" data-ko="SIN LOTE 복구">SIN LOTE</h1>
- <p data-es="Una guía clara para revisar el estado del LOT, recuperar el registro correcto y verificar el proceso físico antes de cerrar cada caso." data-ko="LOT 상태를 확인하고 올바른 기록을 복구한 뒤, 각 건을 종료하기 전에 실제 공정과 시스템 정보가 일치하는지 확인하는 작업 가이드입니다.">Una guía clara para revisar el estado del LOT, recuperar el registro correcto y verificar el proceso físico antes de cerrar cada caso.</p>
- <div class="hero-steps"><span><b>01</b><i data-es="Consultar" data-ko="조회">Consultar</i></span><span class="hero-divider"></span><span><b>02</b><i data-es="Resolver" data-ko="조치">Resolver</i></span><span class="hero-divider"></span><span><b>03</b><i data-es="Verificar" data-ko="검증">Verificar</i></span></div>
- <div class="hero-rule"><span>!</span><p><strong data-es="Antes de actuar" data-ko="조치 전 확인">Antes de actuar</strong><span data-es="Consulta GMS Multi Lote primero. No generes LOT nuevos hasta conocer el estado real." data-ko="먼저 GMS Multi Lote에서 조회하세요. 실제 상태를 확인하기 전에는 신규 LOT를 생성하지 마세요.">Consulta GMS Multi Lote primero. No generes LOT nuevos hasta conocer el estado real.</span></p></div>
-</div>
-<div class="hero-board" aria-hidden="true"><svg viewBox="0 0 330 225">
-<defs><linearGradient id="pcbBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3f6ef"/><stop offset="1" stop-color="#afdccb"/></linearGradient></defs>
-<g fill="none" stroke="#c8dbd7" stroke-width="1"><path d="M4 28h57v20h29M220 12v23h86v32M15 185h37v-24h32M260 217v-25h50M279 106h36v29h15"/></g>
-<g transform="translate(25 22) rotate(-5 132 85)"><rect width="270" height="174" rx="8" fill="url(#pcbBg)" stroke="#438e7b" stroke-width="1.6"/><rect x="10" y="10" width="250" height="154" rx="5" fill="none" stroke="#79b6a5" stroke-dasharray="3 4"/><g stroke="#42947e" stroke-width="1.7" fill="none"><path d="M19 49h56v20h19M19 61h35v31h40M19 119h48v-18h26M184 43h38v24h29M184 113h40v18h27M184 143h33v9h28M45 13v23h26M130 13v30M139 159v-22h26M31 134v15h31"/></g><g fill="#d6a04f" stroke="#ad7d30"><circle cx="18" cy="18" r="2.5"/><circle cx="252" cy="18" r="2.5"/><circle cx="18" cy="156" r="2.5"/><circle cx="252" cy="156" r="2.5"/></g><rect x="93" y="47" width="88" height="70" rx="5" fill="#173e4a" stroke="#37776d" stroke-width="2"/><rect x="102" y="56" width="70" height="52" rx="2" fill="#245461" stroke="#7cbead"/><g stroke="#9bcebf" stroke-width="1"><path d="M108 63h58M108 72h58M108 81h58M108 90h58M108 99h58M114 57v50M125 57v50M136 57v50M147 57v50M158 57v50"/></g><rect x="31" y="69" width="39" height="30" rx="2" fill="#f8fcfa" stroke="#42947e"/><path d="M37 77h27M37 84h20M37 91h25" stroke="#42947e" stroke-width="1.6"/><rect x="207" y="76" width="36" height="26" rx="2" fill="#f8fcfa" stroke="#42947e"/><path d="M213 83h24M213 90h17M213 96h21" stroke="#42947e" stroke-width="1.3"/></g><g fill="#168568"><circle cx="13" cy="27" r="3"/><circle cx="306" cy="67" r="3"/><circle cx="13" cy="185" r="3"/><circle cx="310" cy="192" r="3"/></g></svg><div class="board-caption"><span></span><i data-es="PRODUCTO REAL · LOT CORRECTO · PROCESO CORRECTO" data-ko="실물 제품 · 올바른 LOT · 올바른 공정">PRODUCTO REAL · LOT CORRECTO · PROCESO CORRECTO</i></div></div>
-</section>
-<section class="map-box workflow-map" id="work-sequence">
-  <div class="section-head">
-    <div class="section-index">01</div>
-    <div class="section-title">
-      <div class="section-kicker" data-es="SECUENCIA OPERATIVA · DE PRINCIPIO A FIN" data-ko="실제 작업 순서 · 시작부터 종료까지">SECUENCIA OPERATIVA · DE PRINCIPIO A FIN</div>
-      <h2 data-es="Orden de trabajo" data-ko="작업 순서">Orden de trabajo</h2>
-      <p class="muted" data-es="Empieza aquí. Haz clic en cada tarjeta para abrir la instrucción correspondiente más abajo. No avances a una acción hasta confirmar el estado en GMS Multi Lote." data-ko="여기서 시작합니다. 각 카드를 누르면 아래의 해당 상세 작업이 열립니다. GMS Multi Lote에서 상태를 확인하기 전에는 다음 조치로 넘어가지 마세요.">Sigue la secuencia numerada. Clasifica el resultado antes de restaurar o crear un LOT. La decisión detallada está en el mapa de la sección 03.</p>
+ <section class="hero">
+  <div class="eyebrow" data-es="PROCESO · PASO A PASO" data-ko="작업 절차 · 단계별 안내">PROCESO · PASO A PASO</div>
+  <h1 data-es="Recuperación de SIN LOTE" data-ko="SIN LOTE 복구 절차">Recuperación de SIN LOTE</h1>
+  <p data-es="Sigue los pasos en orden. Primero verifica si el LOT existe; después, corrige únicamente el caso confirmado." data-ko="순서대로 진행하세요. 먼저 LOT 존재 여부를 확인하고, 확인된 상태에 맞는 조치만 진행합니다.">Sigue los pasos en orden. Primero verifica si el LOT existe; después, corrige únicamente el caso confirmado.</p>
+  <div class="rule" data-es="REGLA CLAVE: no crear LOT duplicados, LOT ficticios ni LOT representativos fuera del procedimiento." data-ko="핵심 규칙: 중복 LOT, 허수 LOT, 절차에 없는 대표 LOT를 만들지 마세요.">REGLA CLAVE: no crear LOT duplicados, LOT ficticios ni LOT representativos fuera del procedimiento.</div>
+ </section>
+
+ <section class="section">
+  <div class="section-head"><div class="section-num">01</div><div><h2 data-es="Pasos comunes" data-ko="공통 작업 순서">Pasos comunes</h2><p data-es="Completa estos pasos antes de decidir cómo recuperar el LOT." data-ko="복구 조치를 선택하기 전에 아래 단계를 먼저 완료하세요.">Completa estos pasos antes de decidir cómo recuperar el LOT.</p></div></div>
+  <div class="flow">
+   <div class="flow-step"><div class="flow-number"><div class="circle">1</div><div class="connector"></div></div><div class="flow-content start"><h3 data-es="Escanea el producto físico" data-ko="실물 제품 스캔">Escanea el producto físico</h3><p data-es="Identifica el producto y comprueba qué LOT no se puede localizar." data-ko="제품을 확인하고 조회되지 않는 LOT를 파악합니다.">Identifica el producto y comprueba qué LOT no se puede localizar.</p></div></div>
+   <div class="flow-step"><div class="flow-number"><div class="circle">2</div><div class="connector"></div></div><div class="flow-content"><h3 data-es="Registra el caso en Excel" data-ko="Excel에 케이스 기록">Registra el caso en Excel</h3><p data-es="Anota los productos reales y el resultado de la revisión." data-ko="실제 제품과 조회 결과를 기록합니다.">Anota los productos reales y el resultado de la revisión.</p></div></div>
+   <div class="flow-step"><div class="flow-number"><div class="circle">3</div><div class="connector"></div></div><div class="flow-content"><h3 data-es="Consulta en GMS → Multi Lote" data-ko="GMS → Multi Lote 조회">Consulta en GMS → Multi Lote</h3><p data-es="Busca toda la lista y verifica el estado de cada LOT." data-ko="목록 전체를 조회하고 LOT별 상태를 확인합니다.">Busca toda la lista y verifica el estado de cada LOT.</p></div></div>
+   <div class="flow-step"><div class="flow-number"><div class="circle">4</div><div class="connector"></div></div><div class="flow-content decision"><h3 data-es="¿El LOT aparece en GMS?" data-ko="GMS에서 LOT가 조회되나요?">¿El LOT aparece en GMS?</h3><p data-es="Elige la ruta correspondiente: LOT existente o LOT no encontrado." data-ko="해당 경로를 선택합니다: LOT 존재 또는 LOT 미조회.">Elige la ruta correspondiente: LOT existente o LOT no encontrado.</p></div></div>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="section-head"><div class="section-num">02</div><div><h2 data-es="Decisión principal" data-ko="주요 분기">Decisión principal</h2><p data-es="Usa solo la condición que confirmaste en GMS y en el proceso físico." data-ko="GMS와 실제 공정에서 확인한 조건에 맞는 조치만 선택합니다.">Usa solo la condición que confirmaste en GMS y en el proceso físico.</p></div></div>
+  <div class="branches">
+   <article class="branch">
+    <div class="branch-head"><span data-es="RUTA A · SÍ EXISTE" data-ko="경로 A · LOT 존재">RUTA A · SÍ EXISTE</span><h3 data-es="El LOT aparece" data-ko="LOT가 조회됨">El LOT aparece</h3></div>
+    <div class="branch-body">
+     <div class="action-card restore"><h4 data-es="A1. LOT eliminado" data-ko="A1. LOT 삭제 상태">A1. LOT eliminado</h4><p data-es="Restáuralo mediante el procedimiento de planta indicado como “품위”. Después, vuelve a consultar y confirma el estado." data-ko="현장 절차인 “품위”에 따라 복원합니다. 다시 조회해 상태를 확인하세요.">Restáuralo mediante el procedimiento de planta indicado como “품위”. Después, vuelve a consultar y confirma el estado.</p></div>
+     <div class="action-card ok"><h4 data-es="A2. LOT válido y proceso correcto" data-ko="A2. LOT 유효 + 공정 일치">A2. LOT válido y proceso correcto</h4><p data-es="No crees otro LOT. Registra la verificación en Excel y cierra el caso cuando todos los controles estén completos." data-ko="새 LOT를 만들지 않습니다. Excel에 확인 결과를 기록하고 모든 검증 후 종료합니다.">No crees otro LOT. Registra la verificación en Excel y cierra el caso cuando todos los controles estén completos.</p></div>
+     <div class="action-card correct"><h4 data-es="A3. El proceso no coincide" data-ko="A3. 공정 불일치">A3. El proceso no coincide</h4><p data-es="Envía el producto al proceso correcto. Verifica otra vez que la ubicación física y el historial MES coincidan." data-ko="제품을 올바른 공정으로 이동합니다. 실물 위치와 MES 이력이 일치하는지 다시 확인하세요.">Envía el producto al proceso correcto. Verifica otra vez que la ubicación física y el historial MES coincidan.</p></div>
     </div>
-  </div>
-  <div class="workflow-intro">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 12h5M8 15h8"/><path d="M2 8V3h5M17 21h5v-5"/></svg>
-    <span data-es="CONTROL DE ENTRADA: identifica cada producto físico, conserva su código y registra la cantidad real. No ejecutes cambios en el sistema antes de completar la consulta de GMS Multi Lote." data-ko="시작 전 확인: 실물 제품별 코드를 확인하고 실제 수량을 기록합니다. GMS Multi Lote 조회가 끝나기 전에 시스템 변경 작업을 하지 않습니다.">CONTROL DE ENTRADA: identifica cada producto físico, conserva su código y registra la cantidad real. No ejecutes cambios en el sistema antes de completar la consulta de GMS Multi Lote.</span>
-  </div>
-  <div class="work-grid">
-    <article class="work-card jump-to-step" data-step-target="1" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 01</span><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="4" width="22" height="32" rx="3"/><path d="M14 11h12M14 17h5M14 23h12M14 29h8"/><path d="M23 14l5 3-5 3"/><path d="M4 11V6h5M31 29h5v5"/></svg></div>
-      <h3 data-es="Escanear producto" data-ko="제품 스캔">Escanear producto</h3>
-      <p data-es="Escanea cada código disponible y confirma el modelo y la cantidad física." data-ko="확인 가능한 코드를 스캔하고 모델 및 실물 수량을 확인합니다.">Escanea cada código disponible y confirma el modelo y la cantidad física.</p>
-      <span class="work-micro" data-es="ENTRADA · PRODUCTO REAL" data-ko="입력 · 실제 제품">ENTRADA · PRODUCTO REAL</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="2" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 02</span><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="4" width="30" height="32" rx="2"/><path d="M5 12h30M15 12v24M25 12v24M5 20h30M5 28h30"/><path d="m10 8 2 2 4-4" /></svg></div>
-      <h3 data-es="Registrar en Excel" data-ko="Excel에 기록">Registrar en Excel</h3>
-      <p data-es="Una fila por código/unidad. Evita duplicados y productos omitidos." data-ko="코드/제품별로 한 행씩 기록합니다. 중복과 누락을 확인합니다.">Una fila por código/unidad. Evita duplicados y productos omitidos.</p>
-      <span class="work-micro" data-es="SALIDA · LISTA CONTROLADA" data-ko="출력 · 관리 리스트">SALIDA · LISTA CONTROLADA</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="3" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 03</span><svg viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="17" cy="9" rx="11" ry="4"/><path d="M6 9v18c0 2.2 4.9 4 11 4 2 0 3.8-.2 5.4-.6M28 9v7"/><path d="M6 18c0 2.2 4.9 4 11 4 1.4 0 2.8-.1 4-.3"/><circle cx="28" cy="27" r="7"/><path d="m33 32 4 4M25 27h6M28 24v6"/></svg></div>
-      <h3 data-es="Consultar GMS Multi Lote" data-ko="GMS Multi Lote 조회">Consultar GMS Multi Lote</h3>
-      <p data-es="Pega la lista, ejecuta la consulta y lleva cada resultado a Excel." data-ko="리스트를 붙여 넣고 조회한 뒤 결과를 Excel에 반영합니다.">Pega la lista, ejecuta la consulta y lleva cada resultado a Excel.</p>
-      <span class="work-micro" data-es="CONTROL · ESTADO LOT" data-ko="확인 · LOT 상태">CONTROL · ESTADO LOT</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="3" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 04</span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v8M20 12H10v7M20 12h10v7"/><rect x="3" y="19" width="14" height="10" rx="2"/><rect x="23" y="19" width="14" height="10" rx="2"/><path d="M10 29v5h20v-5"/><path d="M8 24h4M28 24h4"/><circle cx="10" cy="34" r="1"/><circle cx="30" cy="34" r="1"/></svg></div>
-      <h3 data-es="Clasificar el resultado" data-ko="조회 결과 분류">Clasificar el resultado</h3>
-      <p data-es="Separa LOT encontrado de LOT no creado/no encontrado. Verifica eliminación y proceso." data-ko="LOT 있음과 미생성/조회 안 됨으로 나누고 삭제 상태와 공정을 확인합니다.">Separa LOT encontrado de LOT no creado/no encontrado. Verifica eliminación y proceso.</p>
-      <span class="work-micro" data-es="DECISIÓN · VER SECCIÓN 03" data-ko="판단 · 03번 맵 참조">DECISIÓN · VER SECCIÓN 03</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="7" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 05</span><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="9" width="20" height="24" rx="2"/><path d="M10 15h10M10 20h10M10 25h6"/><path d="M29 13v14M22 20h14"/><path d="M27 8h5M27 32h5"/></svg></div>
-      <h3 data-es="Restaurar o generar LOT" data-ko="LOT 복원 또는 생성">Restaurar o generar LOT</h3>
-      <p data-es="LOT existente: restaurar o corregir proceso. LOT ausente: seguir la ruta correcta y contar la unidad real." data-ko="기존 LOT는 복원 또는 공정 정정, 미생성 LOT는 해당 경로에 따라 실물 수량만큼 처리합니다.">LOT existente: restaurar o corregir proceso. LOT ausente: seguir la ruta correcta y contar la unidad real.</p>
-      <span class="work-micro" data-es="ACCIÓN · SIN DUPLICADOS" data-ko="조치 · 중복 생성 금지">ACCIÓN · SIN DUPLICADOS</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="8" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 06</span><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="4" width="12" height="12"/><rect x="7" y="7" width="6" height="6"/><rect x="24" y="4" width="12" height="12"/><rect x="27" y="7" width="6" height="6"/><rect x="4" y="24" width="12" height="12"/><rect x="7" y="27" width="6" height="6"/><path d="M23 23h4v4h-4zM31 22v4h5M22 31h5v5M30 30h6v6"/></svg></div>
-      <h3 data-es="Generar y escanear QR" data-ko="QR 생성 및 스캔">Generar y escanear QR</h3>
-      <p data-es="Escanea el QR en el proceso correspondiente y comprueba LOT, producto y lectura." data-ko="해당 공정에서 QR을 스캔하고 LOT, 제품, 판독 결과가 일치하는지 확인합니다.">Escanea el QR en el proceso correspondiente y comprueba LOT, producto y lectura.</p>
-      <span class="work-micro" data-es="VERIFICACIÓN · EN PROCESO" data-ko="검증 · 해당 공정">VERIFICACIÓN · EN PROCESO</span>
-    </article>
-    <article class="work-card jump-to-step" data-step-target="9" role="button" tabindex="0">
-      <div class="work-card-head"><span class="work-num">STEP 07</span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 29h32M7 29V15h26v14"/><circle cx="12" cy="33" r="3"/><circle cx="28" cy="33" r="3"/><rect x="12" y="7" width="16" height="8" rx="1"/><path d="M16 10h8M20 3v4M5 19h4M31 19h4"/><path d="m15 22 3 3 7-7"/></svg></div>
-      <h3 data-es="Validar y cerrar" data-ko="최종 검증 및 종료">Validar y cerrar</h3>
-      <p data-es="Confirma el estado final y registra la acción y el resultado en Excel." data-ko="최종 상태를 확인하고 조치 및 결과를 Excel에 기록합니다.">Confirma el estado final y registra la acción y el resultado en Excel.</p>
-      <span class="work-micro" data-es="SALIDA · CASO REGISTRADO" data-ko="완료 · 처리 결과 기록">SALIDA · CASO REGISTRADO</span>
-    </article>
-  </div>
-  <div class="workflow-caution">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 22 20H2L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>
-    <div>
-      <strong data-es="REGLA CRÍTICA · NO CREAR LOT ANTES DE CONSULTAR" data-ko="핵심 규칙 · 조회 전에 LOT를 생성하지 말 것">REGLA CRÍTICA · NO CREAR LOT ANTES DE CONSULTAR</strong>
-      <p data-es="La pantalla Lote Main Line genera LOT individuales, no el LOT representativo. Nunca generes LOT ficticios para completar una cantidad faltante. El detalle de las rutas se muestra a continuación." data-ko="Lote Main Line 화면은 개별 LOT를 생성하며 대표 랏을 생성하지 않습니다. 부족한 수량을 채우려고 허수 LOT를 만들지 않습니다. 상세 경로는 아래를 참조하세요.">La pantalla Lote Main Line genera LOT individuales, no el LOT representativo. Nunca generes LOT ficticios para completar una cantidad faltante. El detalle de las rutas se muestra a continuación.</p>
+   </article>
+   <article class="branch no">
+    <div class="branch-head"><span data-es="RUTA B · NO EXISTE" data-ko="경로 B · LOT 미조회">RUTA B · NO EXISTE</span><h3 data-es="El LOT no aparece" data-ko="LOT가 조회되지 않음">El LOT no aparece</h3></div>
+    <div class="branch-body">
+     <div class="action-card"><h4 data-es="B1. Confirma el tipo de flujo" data-ko="B1. 작업 유형 확인">B1. Confirma el tipo de flujo</h4><p data-es="Identifica si es un caso externo o un flujo Main/Sub antes de crear cualquier LOT." data-ko="LOT 생성 전에 외주 케이스인지 Main/Sub 흐름인지 확인합니다.">Identifica si es un caso externo o un flujo Main/Sub antes de crear cualquier LOT.</p></div>
+     <div class="action-card correct"><h4 data-es="B2. Crea solo LOT reales" data-ko="B2. 실제 LOT만 생성">B2. Crea solo LOT reales</h4><p data-es="Crea un LOT individual únicamente para cada producto físico existente. Genera el QR correspondiente y escanéalo en el proceso aplicable." data-ko="실제로 존재하는 제품에 대해서만 개별 LOT를 생성합니다. 해당 QR을 만들고 적용 공정에서 스캔합니다.">Crea un LOT individual únicamente para cada producto físico existente. Genera el QR correspondiente y escanéalo en el proceso aplicable.</p></div>
+     <div class="action-card restore"><h4 data-es="B3. No completes cantidades con LOT ficticios" data-ko="B3. 허수 LOT로 수량을 채우지 않기">B3. No completes cantidades con LOT ficticios</h4><p data-es="Si faltan productos del conjunto, crea LOT solo para los productos que realmente existen. No generes un LOT representativo para completar la cantidad." data-ko="세트 수량이 부족하면 실제 존재하는 제품의 LOT만 생성합니다. 수량을 채우려고 대표 LOT를 만들지 마세요.">Si faltan productos del conjunto, crea LOT solo para los productos que realmente existen. No generes un LOT representativo para completar la cantidad.</p></div>
     </div>
+   </article>
   </div>
-</section>
+ </section>
 
-<section class="map-box diagnostic-map" id="decision-map">
-  <div class="section-head">
-    <div class="section-index">02</div>
-    <div class="section-title">
-      <div class="section-kicker" data-es="ÁRBOL DE DECISIÓN · DIAGNÓSTICO Y ACCIÓN" data-ko="의사결정 트리 · 진단 및 조치">ÁRBOL DE DECISIÓN · DIAGNÓSTICO Y ACCIÓN</div>
-      <h2 data-es="Mapa de decisión para recuperar SIN LOTE" data-ko="SIN LOTE 복구 의사결정 맵">Mapa de decisión para recuperar SIN LOTE</h2>
-      <p class="muted" data-es="Empieza por el resultado de GMS Multi Lote. Sigue solamente la rama que corresponde al resultado verificado." data-ko="GMS Multi Lote 조회 결과부터 시작하고 확인된 결과에 해당하는 경로만 진행하세요.">Empieza por el resultado de GMS Multi Lote. Sigue solamente la rama que corresponde al resultado verificado.</p>
-    </div>
+ <section class="section">
+  <div class="section-head"><div class="section-num">03</div><div><h2 data-es="Reglas especiales" data-ko="특수 케이스 규칙">Reglas especiales</h2><p data-es="Comprueba estas reglas cuando el caso sea de flujo externo, Main/Sub o LOT representativo." data-ko="외주, Main/Sub, 대표 LOT 케이스라면 해당 규칙을 확인하세요.">Comprueba estas reglas cuando el caso sea de flujo externo, Main/Sub o LOT representativo.</p></div></div>
+  <div class="route-grid">
+   <article class="route external">
+    <h3 data-es="Flujo externo" data-ko="외주 흐름">Flujo externo</h3>
+    <p data-es="Si el LOT externo no aparece:" data-ko="외주 LOT가 조회되지 않는 경우:">Si el LOT externo no aparece:</p>
+    <ul>
+     <li data-es="Crear solo LOT individuales para productos reales." data-ko="실제 제품의 개별 LOT만 생성합니다.">Crear solo LOT individuales para productos reales.</li>
+     <li data-es="Generar el QR y escanearlo en el proceso que corresponda." data-ko="QR을 생성하고 해당 공정에서 스캔합니다.">Generar el QR y escanearlo en el proceso que corresponda.</li>
+     <li data-es="No crear LOT representativo ni LOT ficticios." data-ko="대표 LOT나 허수 LOT를 만들지 않습니다.">No crear LOT representativo ni LOT ficticios.</li>
+    </ul>
+   </article>
+   <article class="route main">
+    <h3 data-es="Flujo Main/Sub" data-ko="Main/Sub 흐름">Flujo Main/Sub</h3>
+    <p data-es="Recuerda qué hace y qué no hace Lote Main Line:" data-ko="Lote Main Line의 역할을 구분합니다:">Recuerda qué hace y qué no hace Lote Main Line:</p>
+    <ul>
+     <li data-es="Lote Main Line crea LOT individuales, no el LOT representativo." data-ko="Lote Main Line은 개별 LOT만 생성하며 대표 LOT는 생성하지 않습니다.">Lote Main Line crea LOT individuales, no el LOT representativo.</li>
+     <li data-es="Si el conjunto está incompleto, crea LOT solo para los productos reales." data-ko="세트가 미완성이면 실물 제품의 LOT만 생성합니다.">Si el conjunto está incompleto, crea LOT solo para los productos reales.</li>
+     <li data-es="Gestiona el LOT representativo por separado y empareja Main/Sub cuando ambos estén disponibles." data-ko="대표 LOT는 별도 절차로 처리하고, 양쪽 LOT가 준비되면 Main/Sub를 매칭합니다.">Gestiona el LOT representativo por separado y empareja Main/Sub cuando ambos estén disponibles.</li>
+    </ul>
+   </article>
   </div>
-  <div class="diagnostic-root">
-    <svg viewBox="0 0 28 28" aria-hidden="true"><ellipse cx="11" cy="6" rx="8" ry="3"/><path d="M3 6v12c0 1.7 3.6 3 8 3 1.5 0 2.9-.2 4-.5"/><path d="M3 12c0 1.7 3.6 3 8 3 1.2 0 2.4-.1 3.4-.4"/><circle cx="20" cy="19" r="5"/><path d="m24 23 3 3"/></svg>
-    <div><strong data-es="PUNTO DE CONTROL 1 · CONSULTA GMS MULTI LOTE" data-ko="확인 지점 1 · GMS MULTI LOTE 조회">PUNTO DE CONTROL 1 · CONSULTA GMS MULTI LOTE</strong><p data-es="Comprueba el estado del código y confirma que el LOT encontrado, si existe, corresponde al producto físico." data-ko="코드 상태를 확인하고 LOT가 조회되면 실물 제품과 일치하는지 확인합니다.">Comprueba el estado del código y confirma que el LOT encontrado, si existe, corresponde al producto físico.</p></div>
-    <span class="root-chip">LOT? →</span>
+  <div class="special">
+   <h3 data-es="Caso especial · Router ya cortó" data-ko="특수 케이스 · Router 절단 완료">Caso especial · Router ya cortó</h3>
+   <p data-es="Si Router ya cortó el producto y el LOT individual no se puede escanear, restaura el LOT representativo según la regla documentada. Después, verifica el estado en GMS/MES." data-ko="Router 절단이 완료됐고 개별 LOT가 스캔되지 않으면 문서화된 규칙에 따라 대표 LOT를 복원합니다. 이후 GMS/MES 상태를 확인합니다.">Si Router ya cortó el producto y el LOT individual no se puede escanear, restaura el LOT representativo según la regla documentada. Después, verifica el estado en GMS/MES.</p>
+   <p data-es="Si el LOT individual sí se puede escanear, no restaures el representativo automáticamente: verifica Main/Sub, QR y proceso." data-ko="개별 LOT가 스캔되면 대표 LOT를 자동으로 복원하지 말고 Main/Sub, QR, 공정을 확인합니다.">Si el LOT individual sí se puede escanear, no restaures el representativo automáticamente: verifica Main/Sub, QR y proceso.</p>
   </div>
-  <div class="diagnostic-split">
-    <article class="diag-lane">
-      <header class="diag-lane-head"><span class="lane-code">A</span><div><strong data-es="LOT encontrado / existente" data-ko="LOT 조회됨 / 기존 LOT">LOT encontrado / existente</strong><small data-es="No generes otro LOT para sustituir uno existente." data-ko="기존 LOT를 대체할 신규 LOT를 생성하지 마세요.">No generes otro LOT para sustituir uno existente.</small></div></header>
-      <div class="diag-content">
-        <div class="diag-question" data-es="A1 · ¿El LOT aparece como eliminado?" data-ko="A1 · LOT가 삭제 상태인가?">A1 · ¿El LOT aparece como eliminado?</div>
-        <div class="diag-options">
-          <div class="diag-answer yes"><span class="answer-tag" data-es="SÍ · RESTAURAR" data-ko="예 · 복원">SÍ · RESTAURAR</span><strong data-es="Usar el procedimiento “품위”" data-ko="“품위” 절차 사용">Usar el procedimiento “품위”</strong><p data-es="Después, consulta de nuevo el LOT y confirma que ya no aparece eliminado." data-ko="처리 후 LOT를 다시 조회해 삭제 상태가 해제됐는지 확인합니다.">Después, consulta de nuevo el LOT y confirma que ya no aparece eliminado.</p></div>
-          <div class="diag-answer blue"><span class="answer-tag" data-es="NO · COMPARAR" data-ko="아니요 · 비교">NO · COMPARAR</span><strong data-es="Comparar proceso MES vs. proceso real" data-ko="MES 공정과 실제 공정 비교">Comparar proceso MES vs. proceso real</strong><p data-es="Verifica la ubicación física y el proceso que corresponde al producto." data-ko="실제 제품 위치와 해당 제품이 속해야 할 공정을 확인합니다.">Verifica la ubicación física y el proceso que corresponde al producto.</p></div>
-        </div>
-        <div class="diag-question" data-es="A2 · Si no está eliminado, ¿el proceso coincide?" data-ko="A2 · 삭제 상태가 아니라면 공정이 일치하는가?">A2 · Si no está eliminado, ¿el proceso coincide?</div>
-        <div class="diag-options">
-          <div class="diag-answer yes"><span class="answer-tag" data-es="SÍ · COINCIDE" data-ko="예 · 일치">SÍ · COINCIDE</span><strong data-es="No crear otro LOT" data-ko="신규 LOT 생성 금지">No crear otro LOT</strong><p data-es="Registra la verificación en Excel y cierra el caso cuando todos los controles estén completos." data-ko="Excel에 확인 결과를 기록하고 모든 검증이 끝나면 종료합니다.">Registra la verificación en Excel y cierra el caso cuando todos los controles estén completos.</p></div>
-          <div class="diag-answer no"><span class="answer-tag" data-es="NO · DIFERENTE" data-ko="아니요 · 불일치">NO · DIFERENTE</span><strong data-es="Enviar al proceso correspondiente" data-ko="해당 공정으로 이동">Enviar al proceso correspondiente</strong><p data-es="Después, vuelve a comprobar que el proceso real y el registrado coincidan." data-ko="이동 후 실제 공정과 시스템 등록 공정이 일치하는지 다시 확인합니다.">Después, vuelve a comprobar que el proceso real y el registrado coincidan.</p></div>
-        </div>
-      </div>
-    </article>
-    <article class="diag-lane">
-      <header class="diag-lane-head"><span class="lane-code">B</span><div><strong data-es="LOT no creado / no encontrado" data-ko="LOT 미생성 / 조회되지 않음">LOT no creado / no encontrado</strong><small data-es="Confirma modelo, ruta y unidades físicas antes de generar." data-ko="생성 전에 모델, 처리 경로, 실물 수량을 확인합니다.">Confirma modelo, ruta y unidades físicas antes de generar.</small></div></header>
-      <div class="diag-content">
-        <div class="diag-question" data-es="B1 · Identificar ruta y cantidad real" data-ko="B1 · 경로와 실물 수량 확인">B1 · Identificar ruta y cantidad real</div>
-        <div class="route-block external">
-          <h3 data-es="Ruta externa / LOT externo no encontrado" data-ko="외주 경로 / 외주 LOT 조회 안 됨">Ruta externa / LOT externo no encontrado</h3>
-          <p data-es="Crear únicamente un LOT individual por cada producto que existe físicamente. No crear LOT representativo." data-ko="실제로 존재하는 제품별 개별 LOT만 생성합니다. 대표 랏은 생성하지 않습니다.">Crear únicamente un LOT individual por cada producto que existe físicamente. No crear LOT representativo.</p>
-        </div>
-        <div class="route-block main">
-          <h3 data-es="Ruta Main/Sub" data-ko="Main/Sub 경로">Ruta Main/Sub</h3>
-          <p data-es="Compara las unidades que exige el conjunto del modelo con la cantidad física real." data-ko="모델 세트에 필요한 수량과 실제 제품 수량을 비교합니다.">Compara las unidades que exige el conjunto del modelo con la cantidad física real.</p>
-          <div class="diag-options">
-            <div class="diag-answer no"><span class="answer-tag" data-es="CONJUNTO INCOMPLETO" data-ko="세트 미완성">CONJUNTO INCOMPLETO</span><strong data-es="Solo LOT individuales reales" data-ko="실물 개별 LOT만">Solo LOT individuales reales</strong><p data-es="Ejemplo: se requieren 6 y existen 4. Crear 4 LOT individuales. No crear LOT representativo ni LOT ficticios." data-ko="예: 6개가 필요하지만 실물이 4개면 개별 LOT 4개만 생성합니다. 대표 랏 또는 허수 LOT를 만들지 않습니다.">Ejemplo: se requieren 6 y existen 4. Crear 4 LOT individuales. No crear LOT representativo ni LOT ficticios.</p></div>
-            <div class="diag-answer yes"><span class="answer-tag" data-es="CONJUNTO COMPLETO" data-ko="세트 완성">CONJUNTO COMPLETO</span><strong data-es="Crear individuales y luego emparejar" data-ko="개별 LOT 생성 후 매칭">Crear individuales y luego emparejar</strong><p data-es="Lote Main Line crea solo LOT individuales. El LOT representativo se gestiona por su procedimiento separado; cuando ambos estén disponibles, relacionarlos en Main/Sub." data-ko="Lote Main Line은 개별 LOT만 생성합니다. 대표 랏은 별도 절차로 처리하며 둘 다 준비되면 Main/Sub에서 연결합니다.">Lote Main Line crea solo LOT individuales. El LOT representativo se gestiona por su procedimiento separado; cuando ambos estén disponibles, relacionarlos en Main/Sub.</p></div>
-          </div>
-        </div>
-        <div class="workflow-intro">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 12h5M8 15h8"/><path d="m14 12 2 2 4-4"/></svg>
-          <span data-es="Después de la acción, verifica el LOT/QR y el proceso real. Si falta información o el resultado no coincide, deja el caso pendiente y confirma con el registro GMS/MES." data-ko="조치 후 LOT/QR와 실제 공정을 확인합니다. 정보가 부족하거나 결과가 일치하지 않으면 완료 처리하지 말고 GMS/MES 기록으로 확인합니다.">Después de la acción, verifica el LOT/QR y el proceso real. Si falta información o el resultado no coincide, deja el caso pendiente y confirma con el registro GMS/MES.</span>
-        </div>
-      </div>
-    </article>
+ </section>
+
+ <section class="section">
+  <div class="section-head"><div class="section-num">04</div><div><h2 data-es="Validación final" data-ko="최종 검증">Validación final</h2><p data-es="Cierra el caso solo después de verificar estos puntos." data-ko="아래 항목을 확인한 후 케이스를 종료합니다.">Cierra el caso solo después de verificar estos puntos.</p></div></div>
+  <div class="finish-list">
+   <div class="finish">✓ <span data-es="Estado del LOT confirmado en GMS/MES" data-ko="GMS/MES에서 LOT 상태 확인">Estado del LOT confirmado en GMS/MES</span></div>
+   <div class="finish">✓ <span data-es="Proceso físico e historial MES coinciden" data-ko="실제 공정과 MES 이력 일치">Proceso físico e historial MES coinciden</span></div>
+   <div class="finish">✓ <span data-es="Resultado registrado en Excel" data-ko="Excel에 결과 기록">Resultado registrado en Excel</span></div>
   </div>
-  <div class="join-flow">
-    <div class="join-node"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="3" width="8" height="8"/><rect x="17" y="3" width="8" height="8"/><rect x="3" y="17" width="8" height="8"/><path d="M17 17h3v3h-3zM22 17h3v8h-8v-3"/></svg><div><strong data-es="CONTROL FINAL · QR Y PROCESO" data-ko="최종 확인 · QR 및 공정">CONTROL FINAL · QR Y PROCESO</strong><small data-es="Escanea el QR en el proceso correspondiente y confirma que coincide con el producto y el LOT." data-ko="해당 공정에서 QR을 스캔하고 제품 및 LOT와 일치하는지 확인합니다.">Escanea el QR en el proceso correspondiente y confirma que coincide con el producto y el LOT.</small></div></div>
-    <div class="join-arrow">→</div>
-    <div class="join-node"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="4" width="22" height="20" rx="2"/><path d="M3 10h22M10 10v14M17 10v14M3 17h22"/><path d="m13 7 2 2 4-4"/></svg><div><strong data-es="CIERRE · EXCEL" data-ko="종료 · EXCEL">CIERRE · EXCEL</strong><small data-es="Registra acción, LOT/QR, proceso final y resultado verificado." data-ko="조치, LOT/QR, 최종 공정, 검증된 결과를 기록합니다.">Registra acción, LOT/QR, proceso final y resultado verificado.</small></div></div>
-  </div>
-  <div class="workflow-caution">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 22 20H2L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>
-    <div>
-      <strong data-es="REGLA DE REPRESENTATIVO" data-ko="대표 랏 생성 규칙">REGLA DE REPRESENTATIVO</strong>
-      <p data-es="El LOT representativo solo procede cuando el conjunto físico exigido está completo. Si no lo está, genera únicamente los LOT individuales de productos reales. Lote Main Line nunca sustituye al procedimiento separado del LOT representativo." data-ko="대표 랏은 필요한 실물 세트가 완성된 경우에만 진행합니다. 미완성이라면 실제 제품의 개별 LOT만 생성합니다. Lote Main Line은 대표 랏의 별도 생성 절차를 대신하지 않습니다.">El LOT representativo solo procede cuando el conjunto físico exigido está completo. Si no lo está, genera únicamente los LOT individuales de productos reales. Lote Main Line nunca sustituye al procedimiento separado del LOT representativo.</p>
-    </div>
-  </div>
-</section>
-
-
-<section class="panel procedure-panel" id="detailed-procedure">
-  <span class="eyebrow" data-es="03 · PASO A PASO" data-ko="03 · 단계별 작업 절차">03 · PASO A PASO</span>
-  <h2 data-es="Procedimiento detallado para principiantes" data-ko="초보자용 상세 작업 순서">Procedimiento detallado para principiantes</h2>
-  <details class="step step-accordion" id="step-1" open><summary class="step-summary"><div class="num">1</div><div class="step-summary-heading"><h3 data-es="Escanear y registrar el material en Excel" data-ko="제품을 스캔하고 Excel에 기록">Escanear y registrar el material en Excel</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Reúne los productos SIN LOTE. Escanea cada código disponible y deja una fila por cada unidad/código escaneado. Conserva el modelo y la cantidad real. Revisa que no haya duplicados ni productos omitidos. En esta etapa solo se prepara la lista; todavía no se crea ningún LOT." data-ko="SIN LOTE 대상 제품을 모읍니다. 확인 가능한 코드를 스캔하고 각 제품/코드별로 Excel에 한 줄씩 기록합니다. 모델과 실물 수량을 기록하고 중복·누락을 확인합니다. 이 단계에서는 목록만 준비하고 LOT를 생성하지 않습니다.">Reúne los productos SIN LOTE. Escanea cada código disponible y deja una fila por cada unidad/código escaneado. Conserva el modelo y la cantidad real. Revisa que no haya duplicados ni productos omitidos. En esta etapa solo se prepara la lista; todavía no se crea ningún LOT.</p></div></details>
-  <details class="step step-accordion" id="step-2"><summary class="step-summary"><div class="num">2</div><div class="step-summary-heading"><h3 data-es="Consultar toda la lista en GMS Multi Lote" data-ko="전체 리스트를 GMS Multi Lote에서 조회">Consultar toda la lista en GMS Multi Lote</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Copia la columna de códigos preparada y pégala en el campo de consulta de Multi Lote según el formato que admita la pantalla. Ejecuta la consulta y devuelve cada resultado a su fila de Excel. Separa claramente los resultados con LOT de los que no devuelven LOT." data-ko="정리한 코드 열을 복사해 Multi Lote 조회 화면이 요구하는 형식으로 붙여 넣습니다. 조회를 실행하고 결과를 Excel의 각 행에 기록합니다. LOT가 조회된 제품과 조회되지 않은 제품을 명확히 나눕니다.">Copia la columna de códigos preparada y pégala en el campo de consulta de Multi Lote según el formato que admita la pantalla. Ejecuta la consulta y devuelve cada resultado a su fila de Excel. Separa claramente los resultados con LOT de los que no devuelven LOT.</p></div></details>
-  <details class="step step-accordion" id="step-3"><summary class="step-summary"><div class="num">3</div><div class="step-summary-heading"><h3 data-es="Separar los resultados en dos grupos" data-ko="조회 결과를 두 그룹으로 분류">Separar los resultados en dos grupos</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><ul><li data-es="Grupo A: LOT sí existe. Revisa si está eliminado y si su proceso corresponde a la ubicación real." data-ko="A 그룹: LOT 있음. 삭제 상태와 실제 위치에 맞는 공정인지 확인합니다.">Grupo A: LOT sí existe. Revisa si está eliminado y si su proceso corresponde a la ubicación real.</li><li data-es="Grupo B: LOT no creado/no encontrado. Confirma el modelo, el conjunto que corresponde y la cantidad física antes de generar." data-ko="B 그룹: LOT 미생성/조회 안 됨. 생성 전에 모델, 필요한 세트 구성, 실물 수량을 확인합니다.">Grupo B: LOT no creado/no encontrado. Confirma el modelo, el conjunto que corresponde y la cantidad física antes de generar.</li></ul></div></details>
-  <details class="step step-accordion" id="step-4"><summary class="step-summary"><div class="num">4</div><div class="step-summary-heading"><h3 data-es="Si el LOT existe, restaurar o corregir el proceso" data-ko="LOT가 있으면 복원 또는 공정 정정">Si el LOT existe, restaurar o corregir el proceso</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><ul><li data-es="Si el LOT está eliminado: utiliza el procedimiento indicado como “품위” para restaurarlo. Después vuelve a consultarlo." data-ko="LOT가 삭제 상태라면 “품위” 절차로 복원한 다음 다시 조회합니다.">Si el LOT está eliminado: utiliza el procedimiento indicado como “품위” para restaurarlo. Después vuelve a consultarlo.</li><li data-es="Si no está eliminado pero el proceso es diferente: envíalo al proceso que corresponde. Confirma que el estado final y la ubicación real coincidan." data-ko="삭제 상태가 아니지만 공정이 다르면 해당 공정으로 보냅니다. 최종 시스템 상태와 실제 위치가 일치하는지 확인합니다.">Si no está eliminado pero el proceso es diferente: envíalo al proceso que corresponde. Confirma que el estado final y la ubicación real coincidan.</li><li data-es="Si LOT y proceso están correctos: no generes otro LOT. Registra que se verificó." data-ko="LOT와 공정이 모두 맞으면 신규 LOT를 만들지 말고 확인 완료로 기록합니다.">Si LOT y proceso están correctos: no generes otro LOT. Registra que se verificó.</li></ul></div></details>
-  <details class="step step-accordion" id="step-5"><summary class="step-summary"><div class="num">5</div><div class="step-summary-heading"><h3 data-es="Si el LOT no existe, identificar el tipo de flujo" data-ko="LOT가 없으면 처리 경로 구분">Si el LOT no existe, identificar el tipo de flujo</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Confirma el modelo y el número de unidades físicas. Determina si el caso requiere relacionar LOT representativo e individuales en Main/Sub, o si corresponde al flujo externo. No elijas el flujo solo por el nombre del producto; utiliza la clasificación real del caso." data-ko="모델과 실물 수량을 확인합니다. 대표 랏과 개별 LOT를 Main/Sub에서 연결해야 하는 건인지, 외주 경로인지 구분합니다. 제품명만 보고 경로를 추정하지 말고 해당 건의 실제 분류를 사용합니다.">Confirma el modelo y el número de unidades físicas. Determina si el caso requiere relacionar LOT representativo e individuales en Main/Sub, o si corresponde al flujo externo. No elijas el flujo solo por el nombre del producto; utiliza la clasificación real del caso.</p></div></details>
-  <details class="step step-accordion" id="step-6"><summary class="step-summary"><div class="num">6</div><div class="step-summary-heading"><h3 data-es="Validar la cantidad antes de crear un LOT representativo" data-ko="대표 랏 생성 전에 수량 확인">Validar la cantidad antes de crear un LOT representativo</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Comprueba cuántos LOT individuales exige el conjunto del modelo y cuenta los productos reales. Si el estándar requiere 6 y solo hay 4, crea LOT individuales solo para esos 4. No crees un representativo ni completes las dos unidades faltantes con LOT ficticios. Si es externo y no se encuentra el LOT externo, crea solo los LOT individuales reales." data-ko="모델의 대표 랏 구성에 필요한 개별 LOT 수와 실물 수량을 비교합니다. 기준이 6개인데 실물이 4개라면 해당 4개만 개별 LOT로 생성합니다. 대표 랏을 만들거나 부족한 2개를 허수 LOT로 채우지 않습니다. 외주 건에서 외주 LOT를 찾을 수 없으면 실제 제품의 개별 LOT만 생성합니다.">Comprueba cuántos LOT individuales exige el conjunto del modelo y cuenta los productos reales. Si el estándar requiere 6 y solo hay 4, crea LOT individuales solo para esos 4. No crees un representativo ni completes las dos unidades faltantes con LOT ficticios. Si es externo y no se encuentra el LOT externo, crea solo los LOT individuales reales.</p></div></details>
-  <details class="step step-accordion" id="step-7"><summary class="step-summary"><div class="num">7</div><div class="step-summary-heading"><h3 data-es="Crear LOT usando la ruta correcta" data-ko="올바른 경로로 LOT 생성">Crear LOT usando la ruta correcta</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><ul><li data-es="Para un caso Main/Sub con conjunto completo: entra a Lote Main Line, selecciona los modelos correspondientes y genera únicamente los LOT individuales. Esta pantalla no crea el LOT representativo." data-ko="Main/Sub 대상이며 세트가 완성된 경우: Lote Main Line에서 해당 모델을 선택해 개별 LOT만 생성합니다. 이 화면에서는 대표 랏을 생성하지 않습니다.">Para un caso Main/Sub con conjunto completo: entra a Lote Main Line, selecciona los modelos correspondientes y genera únicamente los LOT individuales. Esta pantalla no crea el LOT representativo.</li><li data-es="Cuando el LOT representativo esté disponible mediante su procedimiento correspondiente, entra a Main/Sub e introduce el representativo y los LOT individuales para emparejar los que pertenecen al mismo conjunto." data-ko="해당 절차로 대표 랏이 준비되면 Main/Sub에서 대표 랏과 개별 LOT를 입력해 같은 세트에 속하는 항목끼리 매칭합니다.">Cuando el LOT representativo esté disponible mediante su procedimiento correspondiente, entra a Main/Sub e introduce el representativo y los LOT individuales para emparejar los que pertenecen al mismo conjunto.</li><li data-es="Para un conjunto incompleto, o un caso externo sin LOT externo: crea solo un LOT individual por cada producto real. No crees LOT representativo." data-ko="세트가 불완전하거나 외주 LOT를 찾을 수 없는 외주 건은 실제 제품별 개별 LOT만 생성합니다. 대표 랏은 생성하지 않습니다.">Para un conjunto incompleto, o un caso externo sin LOT externo: crea solo un LOT individual por cada producto real. No crees LOT representativo.</li></ul></div></details>
-  <details class="step step-accordion" id="step-8"><summary class="step-summary"><div class="num">8</div><div class="step-summary-heading"><h3 data-es="Generar el QR y escanearlo en el proceso correspondiente" data-ko="QR 생성 후 해당 공정에서 스캔">Generar el QR y escanearlo en el proceso correspondiente</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Genera el QR del LOT creado/restaurado según la regla aplicable. Escanea el QR en el proceso correspondiente. Comprueba que el código leído coincide con el LOT y el producto reales. Crear una imagen QR no reemplaza el registro LOT ni el escaneo del proceso." data-ko="해당 규칙에 따라 생성 또는 복원한 LOT의 QR을 만듭니다. 해당 공정에서 QR을 스캔하고 읽힌 코드가 실제 LOT와 제품에 일치하는지 확인합니다. QR 이미지 생성은 LOT 등록이나 공정 스캔을 대신하지 않습니다.">Genera el QR del LOT creado/restaurado según la regla aplicable. Escanea el QR en el proceso correspondiente. Comprueba que el código leído coincide con el LOT y el producto reales. Crear una imagen QR no reemplaza el registro LOT ni el escaneo del proceso.</p></div></details>
-  <details class="step step-accordion" id="step-9"><summary class="step-summary"><div class="num">9</div><div class="step-summary-heading"><h3 data-es="Cerrar el caso en Excel" data-ko="Excel에 최종 결과 기록">Cerrar el caso en Excel</h3><small data-es="Haz clic para ver las instrucciones y controles" data-ko="세부 작업 방법과 확인 사항을 보려면 누르세요">Haz clic para ver las instrucciones y controles</small></div><span class="step-chevron" aria-hidden="true">+</span></summary><div class="step-detail-body"><p data-es="Registra el resultado final de cada código: restaurado, enviado al proceso correcto, LOT individual creado, LOT representativo y Main/Sub completados, o pendiente de aclaración. No marques como terminado un registro que aún no se comprobó." data-ko="각 코드의 최종 결과를 기록합니다: 복원 완료, 해당 공정으로 이동, 개별 LOT 생성, 대표 랏 및 Main/Sub 완료, 또는 확인 대기. 검증하지 않은 건은 완료 처리하지 않습니다.">Registra el resultado final de cada código: restaurado, enviado al proceso correcto, LOT individual creado, LOT representativo y Main/Sub completados, o pendiente de aclaración. No marques como terminado un registro que aún no se comprobó.</p></div></details>
-</section>
-
-
-<section id="diagnosis" aria-labelledby="triage-title">
- <div class="triage-head">
-  <div class="triage-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 3v5M14 8H7v5M14 8h7v5"/><rect x="2.5" y="13" width="9" height="7" rx="1.5"/><rect x="16.5" y="13" width="9" height="7" rx="1.5"/><path d="M7 20v4h14v-4M11 24h6"/></svg></div>
-  <div class="triage-title-wrap">
-   <div class="triage-kicker" data-es="HERRAMIENTA INTERACTIVA · SELECCIONA EL ESTADO REAL" data-ko="인터랙티브 도구 · 실제 상태 선택">HERRAMIENTA INTERACTIVA · SELECCIONA EL ESTADO REAL</div>
-   <h2 id="triage-title" data-es="Encuentra tu solución paso a paso" data-ko="상태에 맞는 해결 방법 찾기">Encuentra tu solución paso a paso</h2>
-   <p data-es="Haz clic en el estado que aparece en el sistema. Responde las preguntas y el asistente te mostrará la acción adecuada y te llevará directamente al procedimiento." data-ko="시스템에 표시된 상태를 선택하세요. 질문에 답하면 적절한 조치를 보여주고 상세 작업 절차로 바로 연결합니다.">Haz clic en el estado que aparece en el sistema. Responde las preguntas y el asistente te mostrará la acción adecuada y te llevará directamente al procedimiento.</p>
-  </div>
- </div>
- <div class="triage-content">
-  <div class="triage-meta"><span class="triage-step-chip" id="triage-step-chip">PASO 01</span><span class="triage-dot" aria-hidden="true"></span><span class="triage-meta-label" data-es="ASISTENTE DE DIAGNÓSTICO" data-ko="상태 진단 도우미">ASISTENTE DE DIAGNÓSTICO</span></div>
-  <div class="triage-crumbs" id="triage-crumbs"></div>
-  <div id="triage-question-wrap">
-   <h3 class="triage-question" id="triage-question" aria-live="polite">¿Qué estado ves en GMS Multi Lote?</h3>
-   <p class="triage-help" id="triage-help">Elige la opción que coincide con lo que has comprobado.</p>
-   <div class="triage-options" id="triage-options"></div>
-  </div>
-  <div class="triage-result" id="triage-result" data-tone="action" hidden aria-live="polite">
-   <div class="triage-result-band"></div><div class="triage-result-body">
-    <span class="triage-status" id="triage-status"></span><h3 id="triage-result-title"></h3><p id="triage-result-body-text"></p><div class="triage-rule" id="triage-rule"></div>
-    <div class="triage-actions"><button class="triage-action primary" type="button" id="triage-go-procedure"><span data-es="Ir al procedimiento" data-ko="상세 작업 절차로 이동">Ir al procedimiento</span> →</button><button class="triage-action secondary" type="button" id="triage-go-map"><span data-es="Ver mapa de decisión" data-ko="의사결정 맵 보기">Ver mapa de decisión</span> ↘</button></div>
-   </div>
-  </div>
-  <div class="triage-nav"><button type="button" id="triage-back" disabled>← <span data-es="Volver a la pregunta anterior" data-ko="이전 질문으로">Volver a la pregunta anterior</span></button><button type="button" class="reset" id="triage-reset"><span data-es="Reiniciar diagnóstico" data-ko="진단 처음부터 다시">Reiniciar diagnóstico</span> ↻</button></div>
-  <div class="triage-alert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 22 20H2L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg><span data-es="La recomendación sigue las reglas de trabajo documentadas. Si el estado del sistema y el producto físico no coinciden, deja el caso pendiente y verifica los registros GMS/MES." data-ko="안내는 문서화된 작업 규칙을 따릅니다. 시스템 상태와 실물이 일치하지 않으면 확인 대기 상태로 두고 GMS/MES 기록을 검증하세요.">La recomendación sigue las reglas de trabajo documentadas. Si el estado del sistema y el producto físico no coinciden, deja el caso pendiente y verifica los registros GMS/MES.</span></div>
- </div>
-</section>
-
-
-<section class="panel cause-panel" id="root-causes">
-  <span class="eyebrow" data-es="05 · ANÁLISIS DE CAUSA" data-ko="05 · 원인 분석">05 · ANÁLISIS DE CAUSA</span>
-  <h2 data-es="¿Por qué puede ocurrir un caso SIN LOTE?" data-ko="SIN LOTE 문제는 왜 발생할 수 있나?">¿Por qué puede ocurrir un caso SIN LOTE?</h2>
-  <p class="muted" data-es="El material proporcionado describe los estados y los errores que deben corregirse, pero no incluye los registros de un incidente concreto. Por eso distinguimos los hechos descritos de las causas posibles que deben comprobarse." data-ko="제공된 자료에는 바로잡아야 할 상태와 오류는 설명되어 있지만, 특정 발생 건의 실제 로그는 없습니다. 따라서 문서에서 확인된 사실과 추가 확인이 필요한 원인 후보를 구분합니다.">El material proporcionado describe los estados y los errores que deben corregirse, pero no incluye los registros de un incidente concreto. Por eso distinguimos los hechos descritos de las causas posibles que deben comprobarse.</p>
-  <div class="accordion-list">
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path><path d="M8 10.5h5"></path></svg></div><div class="cause-summary-copy"><h3 data-es="El LOT nunca se generó" data-ko="LOT가 애초에 생성되지 않음">El LOT nunca se generó</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="Hecho observable: GMS Multi Lote no devuelve un LOT para el código consultado. Causas posibles: se omitió el paso de creación, el registro no se completó, o el LOT externo no existe/no se encuentra. La consulta por sí sola no confirma cuál de estas causas ocurrió." data-ko="관찰되는 상태: GMS Multi Lote에서 조회한 코드의 LOT가 나오지 않습니다. 가능한 원인: 생성 단계를 건너뜀, 등록 미완료, 외주 LOT가 없거나 조회되지 않음. 조회 결과만으로 실제 원인을 확정할 수는 없습니다.">Hecho observable: GMS Multi Lote no devuelve un LOT para el código consultado. Causas posibles: se omitió el paso de creación, el registro no se completó, o el LOT externo no existe/no se encuentra. La consulta por sí sola no confirma cuál de estas causas ocurrió.</p>
-      <p class="note" data-es="Qué revisar: código usado, resultado de consulta y si se trata de flujo Main/Sub o externo." data-ko="확인할 것: 입력 코드, 조회 결과, Main/Sub 경로인지 외주 경로인지.">Qué revisar: código usado, resultado de consulta y si se trata de flujo Main/Sub o externo.</p>
-    </div></details>
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2.3 5.6"></path><path d="M4 4v7h7"></path><path d="M9 12l2 2 4-5"></path></svg></div><div class="cause-summary-copy"><h3 data-es="El LOT fue creado y después quedó eliminado" data-ko="LOT 생성 후 삭제 상태가 됨">El LOT fue creado y después quedó eliminado</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="Hecho observable: hay evidencia de creación, pero el estado actual es eliminado. El motivo de la eliminación no aparece en el material disponible; debe revisarse en el registro correspondiente y no suponerse." data-ko="관찰되는 상태: 생성 이력은 있지만 현재 삭제 상태입니다. 제공된 자료만으로 삭제 사유는 알 수 없으므로 관련 기록을 확인해야 하며 추측하면 안 됩니다.">Hecho observable: hay evidencia de creación, pero el estado actual es eliminado. El motivo de la eliminación no aparece en el material disponible; debe revisarse en el registro correspondiente y no suponerse.</p>
-      <p class="note" data-es="Qué revisar: estado del LOT y registro disponible de eliminación. Acción indicada por el procedimiento: restaurar mediante la función/procedimiento llamado “품위” en la nota del usuario." data-ko="확인할 것: LOT 상태 및 삭제 기록. 현장 절차: 사용자 메모에 적힌 “품위” 기능/절차를 사용해 복원합니다.">Qué revisar: estado del LOT y registro disponible de eliminación. Acción indicada por el procedimiento: restaurar mediante la función/procedimiento llamado “품위” en la nota del usuario.</p>
-    </div></details>
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h15"></path><path d="m15 4 4 4-4 4"></path><path d="M20 16H5"></path><path d="m9 12-4 4 4 4"></path></svg></div><div class="cause-summary-copy"><h3 data-es="El proceso real y el proceso MES no coinciden" data-ko="실제 공정과 MES 공정이 일치하지 않음">El proceso real y el proceso MES no coinciden</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="Hecho observable: el LOT existe, pero la ubicación/proceso físico no coincide con el historial. Causas posibles por investigar: no se registró el escaneo de una operación, se registró en un proceso equivocado o el producto se movió sin actualizar su estado. Son hipótesis, no causas confirmadas." data-ko="관찰되는 상태: LOT는 있지만 실물 위치/공정이 시스템 이력과 다릅니다. 확인할 원인 후보: 공정 스캔 누락, 잘못된 공정에 등록, MES 상태 갱신 없이 제품 이동. 이는 확인이 필요한 가설이지 확정 원인은 아닙니다.">Hecho observable: el LOT existe, pero la ubicación/proceso físico no coincide con el historial. Causas posibles por investigar: no se registró el escaneo de una operación, se registró en un proceso equivocado o el producto se movió sin actualizar su estado. Son hipótesis, no causas confirmadas.</p>
-      <p class="note" data-es="Qué revisar: producto físico, LOT consultado, proceso mostrado en MES y proceso al que realmente corresponde." data-ko="확인할 것: 실물 제품, 조회된 LOT, MES 표시 공정, 실제 보내야 할 공정.">Qué revisar: producto físico, LOT consultado, proceso mostrado en MES y proceso al que realmente corresponde.</p>
-    </div></details>
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"></path><path d="M7 16.5 5.5 18a4 4 0 0 1-5.5-5.8L5 7.2a4 4 0 0 1 5.7 0"></path><path d="M17 7.5 18.5 6a4 4 0 0 1 5.5 5.8L19 16.8a4 4 0 0 1-5.7 0"></path></svg></div><div class="cause-summary-copy"><h3 data-es="No existe o es incorrecta la relación Main/Sub" data-ko="Main/Sub 연결이 없거나 잘못됨">No existe o es incorrecta la relación Main/Sub</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="Cuando el caso usa LOT representativo y LOT individuales, ambos deben quedar emparejados en Main/Sub. Si esa relación falta o conecta LOT incorrectos, la estructura del LOT no refleja el conjunto real." data-ko="대표 랏과 개별 LOT를 사용하는 건은 Main/Sub에서 서로 매칭되어야 합니다. 연결이 누락되거나 잘못 연결되면 LOT 구조가 실제 제품 세트를 반영하지 못합니다.">Cuando el caso usa LOT representativo y LOT individuales, ambos deben quedar emparejados en Main/Sub. Si esa relación falta o conecta LOT incorrectos, la estructura del LOT no refleja el conjunto real.</p>
-      <p class="note" data-es="Qué revisar: LOT representativo, LOT individuales y las relaciones registradas entre ellos." data-ko="확인할 것: 대표 랏, 개별 LOT, 두 종류 간 시스템 연결 관계.">Qué revisar: LOT representativo, LOT individuales y las relaciones registradas entre ellos.</p>
-    </div></details>
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 7 9-4 9 4-9 4-9-4Z"></path><path d="M3 7v10l9 4 9-4V7"></path><path d="M12 11v10"></path><path d="M6 5.7 15 10"></path></svg></div><div class="cause-summary-copy"><h3 data-es="Se intenta crear un LOT representativo con un conjunto incompleto" data-ko="불완전한 세트에 대표 랏을 생성하려고 함">Se intenta crear un LOT representativo con un conjunto incompleto</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="Riesgo confirmado por la regla de trabajo: si el modelo necesita 6 LOT individuales pero solo existen 4 productos, crear un representativo de 6 puede dejar 2 unidades/LOT ficticios. Este error se evita comparando el conjunto requerido con la cantidad física antes de generar." data-ko="현장 규칙으로 확인된 위험: 모델에 개별 LOT 6개가 필요하지만 실물은 4개뿐인데 대표 랏 6개를 만들면 허수 2개가 발생할 수 있습니다. 생성 전에 필요한 구성 수와 실물 수량을 비교해 방지합니다.">Riesgo confirmado por la regla de trabajo: si el modelo necesita 6 LOT individuales pero solo existen 4 productos, crear un representativo de 6 puede dejar 2 unidades/LOT ficticios. Este error se evita comparando el conjunto requerido con la cantidad física antes de generar.</p>
-    </div></details>
-    <details class="cause cause-accordion"><summary class="cause-summary"><div class="cause-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5"></path><path d="M15 4h5v5"></path><path d="M20 15v5h-5"></path><path d="M9 20H4v-5"></path><path d="M8 8h3v3H8zM14 8h2v2h-2zM8 14h2v2H8zM13 13h3v3h-3z"></path></svg></div><div class="cause-summary-copy"><h3 data-es="El QR se generó, pero no se verificó en el proceso correcto" data-ko="QR 생성 후 해당 공정에서 확인하지 않음">El QR se generó, pero no se verificó en el proceso correcto</h3><small data-es="Abrir análisis y controles" data-ko="원인 분석 및 확인 항목 펼치기">Abrir análisis y controles</small></div><span class="cause-chevron" aria-hidden="true">+</span></summary><div class="cause-accordion-body">
-      <p data-es="El QR, el registro LOT y el escaneo del proceso son pasos relacionados, pero no son lo mismo. Un QR creado no demuestra por sí solo que el LOT esté correctamente registrado ni que la unidad haya sido escaneada." data-ko="QR 생성, LOT 등록, 공정에서의 스캔은 서로 연결된 단계지만 같은 작업은 아닙니다. QR 이미지가 만들어졌다고 LOT 등록이나 공정 스캔까지 완료된 것은 아닙니다.">El QR, el registro LOT y el escaneo del proceso son pasos relacionados, pero no son lo mismo. Un QR creado no demuestra por sí solo que el LOT esté correctamente registrado ni que la unidad haya sido escaneada.</p>
-      <p class="note" data-es="Qué revisar: el contenido del QR, el producto al que pertenece y el resultado del escaneo en el proceso correspondiente." data-ko="확인할 것: QR 내용, 연결된 실물 제품, 해당 공정의 스캔 결과.">Qué revisar: el contenido del QR, el producto al que pertenece y el resultado del escaneo en el proceso correspondiente.</p>
-    </div></details>
-  </div>
-  <div class="callout">
-    <strong data-es="Conclusión del análisis" data-ko="원인 분석 결론">Conclusión del análisis</strong>
-    <p data-es="El problema general es una ruptura entre tres cosas: el producto que existe físicamente, el LOT/QR que lo identifica y el proceso que GMS/MES registra. Para determinar la causa raíz de un incidente concreto, hay que conservar el código escaneado, el resultado de Multi Lote, el estado del LOT, el proceso real y la acción aplicada. No se debe marcar una causa como confirmada solo porque el síntoma coincide." data-ko="전체 문제의 핵심은 세 가지 사이의 불일치입니다. 실제로 존재하는 제품, 그 제품을 식별하는 LOT/QR, GMS/MES에 등록된 공정입니다. 특정 건의 근본 원인을 확정하려면 스캔 코드, Multi Lote 조회 결과, LOT 상태, 실제 공정, 적용한 조치를 함께 기록해야 합니다. 증상이 비슷하다는 이유만으로 원인을 확정하면 안 됩니다.">El problema general es una ruptura entre tres cosas: el producto que existe físicamente, el LOT/QR que lo identifica y el proceso que GMS/MES registra. Para determinar la causa raíz de un incidente concreto, hay que conservar el código escaneado, el resultado de Multi Lote, el estado del LOT, el proceso real y la acción aplicada. No se debe marcar una causa como confirmada solo porque el síntoma coincide.</p>
-  </div>
-</section>
-
-
-
-<section class="panel final-check-panel" id="final-check">
-  <span class="eyebrow" data-es="06 · CONTROL FINAL" data-ko="06 · 최종 확인">06 · CONTROL FINAL</span>
-  <h2 data-es="Lista de verificación" data-ko="최종 체크리스트">Lista de verificación</h2>
-  <p class="muted" data-es="Marca cada punto solo después de comprobarlo en el producto o en el sistema." data-ko="실물 또는 시스템에서 실제 확인한 항목만 체크하세요.">Marca cada punto solo después de comprobarlo en el producto o en el sistema.</p>
-  <div class="checklist">
-    <label class="check"><input type="checkbox"><span data-es="Todos los productos objetivo están en la lista de Excel." data-ko="대상 제품이 모두 Excel 리스트에 포함되어 있다.">Todos los productos objetivo están en la lista de Excel.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Cada código se consultó en GMS Multi Lote." data-ko="각 코드를 GMS Multi Lote에서 조회했다.">Cada código se consultó en GMS Multi Lote.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Los LOT existentes se separaron de los no creados." data-ko="기존 LOT와 미생성 LOT를 구분했다.">Los LOT existentes se separaron de los no creados.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Los LOT eliminados se restauraron mediante el procedimiento “품위”." data-ko="삭제 LOT를 “품위” 절차로 복원했다.">Los LOT eliminados se restauraron mediante el procedimiento “품위”.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="El proceso registrado coincide con el proceso que corresponde." data-ko="등록 공정과 실제 보내야 할 공정이 일치한다.">El proceso registrado coincide con el proceso que corresponde.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="El conjunto físico completo se confirmó antes de crear un LOT representativo." data-ko="대표 랏 생성 전에 실물 세트가 완성됐는지 확인했다.">El conjunto físico completo se confirmó antes de crear un LOT representativo.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Si el conjunto está incompleto, solo se crearon LOT individuales reales." data-ko="세트가 불완전하면 실물 제품의 개별 LOT만 생성했다.">Si el conjunto está incompleto, solo se crearon LOT individuales reales.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Cuando aplica, el LOT representativo y los individuales se emparejaron en Main/Sub." data-ko="해당되는 경우 Main/Sub에서 대표 랏과 개별 LOT를 매칭했다.">Cuando aplica, el LOT representativo y los individuales se emparejaron en Main/Sub.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="Cada QR se escaneó y se confirmó en el proceso correspondiente." data-ko="각 QR을 해당 공정에서 스캔하고 확인했다.">Cada QR se escaneó y se confirmó en el proceso correspondiente.</span></label>
-    <label class="check"><input type="checkbox"><span data-es="El resultado final de cada caso quedó registrado en Excel." data-ko="각 건의 최종 결과를 Excel에 기록했다.">El resultado final de cada caso quedó registrado en Excel.</span></label>
-  </div>
-</section>
-
-<section class="callout" id="representative-existing-case">
-  <strong data-es="Caso separado: el LOT representativo ya existe" data-ko="별도 케이스: 대표 랏이 이미 존재하는 경우">Caso separado: el LOT representativo ya existe</strong>
-  <p data-es="La instrucción proporcionada para este caso es: comprobar si Router ya cortó el producto; si está cortado pero el LOT individual no se puede escanear, se debe restaurar el LOT representativo. El flujo completo de este caso se añadirá por separado, tal como se indicó; no se mezcla con el procedimiento de representante ausente." data-ko="이 경우 제공된 현장 규칙은 다음과 같습니다. Router에서 제품이 이미 잘렸는지 확인하고, 잘려 있지만 개별 LOT가 스캔되지 않으면 대표 랏을 복원합니다. 이 케이스의 전체 흐름은 안내한 대로 별도로 추가하며, 대표 랏이 없는 경우의 절차와 섞지 않습니다.">La instrucción proporcionada para este caso es: comprobar si Router ya cortó el producto; si está cortado pero el LOT individual no se puede escanear, se debe restaurar el LOT representativo. El flujo completo de este caso se añadirá por separado, tal como se indicó; no se mezcla con el procedimiento de representante ausente.</p>
-</section>
-
-<section class="callout blue">
-  <strong data-es="Límite de este análisis" data-ko="분석 범위">Límite de este análisis</strong>
-  <p data-es="Las causas indicadas como posibles requieren evidencia real de GMS/MES o del proceso para confirmarse. Los pasos y las reglas de cantidad siguen las instrucciones de trabajo proporcionadas. No se inventan nombres de botones que no se hayan mostrado en la pantalla real." data-ko="가능성으로 표시한 원인은 GMS/MES 기록이나 실제 공정 증거로 확인해야 합니다. 작업 단계와 수량 규칙은 제공된 현장 지침을 따릅니다. 실제 화면에서 확인하지 않은 버튼 이름은 만들어 넣지 않았습니다.">Las causas indicadas como posibles requieren evidencia real de GMS/MES o del proceso para confirmarse. Los pasos y las reglas de cantidad siguen las instrucciones de trabajo proporcionadas. No se inventan nombres de botones que no se hayan mostrado en la pantalla real.</p>
-</section>
-<button class="print" type="button" onclick="window.print()" data-es="Imprimir / Guardar como PDF" data-ko="인쇄 / PDF 저장">Imprimir / Guardar como PDF</button>
-<div class="footer" data-es="SIN LOTE Recovery Guide · Procedimiento para LOT representativo ausente y LOT individuales · Idiomas: español y coreano." data-ko="SIN LOTE 복구 가이드 · 대표 랏이 없는 경우 및 개별 LOT 복구 절차 · 언어: 스페인어 / 한국어.">SIN LOTE Recovery Guide · Procedimiento para LOT representativo ausente y LOT individuales · Idiomas: español y coreano.</div>
+  <div class="rule" data-es="Si el estado no está claro, no inventes un paso: deja el caso pendiente y confirma con el responsable del proceso." data-ko="상태가 불명확하면 임의로 처리하지 마세요. 케이스를 보류하고 공정 담당자에게 확인하세요.">Si el estado no está claro, no inventes un paso: deja el caso pendiente y confirma con el responsable del proceso.</div>
+ </section>
+ <div class="footer" data-es="Guía visual para operación. Ante una condición no definida aquí, confirma el procedimiento vigente con el responsable del proceso." data-ko="현장 작업용 안내입니다. 여기에 정의되지 않은 조건은 공정 담당자에게 최신 절차를 확인하세요.">Guía visual para operación. Ante una condición no definida aquí, confirma el procedimiento vigente con el responsable del proceso.</div>
 </main>
-</div>
-</div>
-<div id="access-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <form class="gate-card" id="access-gate-form">
-    <nav class="actions gate-lang" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ESPAÑOL</button>
-      <button type="button" class="lang-btn" data-lang="ko" aria-pressed="false">한국어</button>
-    </nav>
-    <h2 id="gate-title" data-es="Acceso requerido" data-ko="접근 암호 필요">Acceso requerido</h2>
-    <p data-es="Introduce la contraseña para abrir la guía." data-ko="가이드를 열기 위한 비밀번호를 입력하세요.">Introduce la contraseña para abrir la guía.</p>
-    <input id="access-gate-password" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" required autofocus>
-    <button class="submit" type="submit" data-es="Entrar" data-ko="입장">Entrar</button>
-    <div id="access-gate-error" class="error" role="status" aria-live="polite"></div>
-  </form>
-</div>
 <script>
 (function(){
-  let currentLang = "es";
-  const dict = {
-    es:{password:"Contraseña",wrong:"Contraseña incorrecta. Inténtalo de nuevo."},
-    ko:{password:"비밀번호",wrong:"비밀번호가 올바르지 않습니다. 다시 입력하세요."}
-  };
-  function setLanguage(lang){
-    currentLang = lang === "ko" ? "ko" : "es";
-    document.documentElement.lang = currentLang;
-    document.querySelectorAll("[data-es][data-ko]").forEach(el=>{
-      el.textContent = el.getAttribute("data-" + currentLang);
-    });
-    document.querySelectorAll(".lang-btn").forEach(btn=>{
-      btn.setAttribute("aria-pressed",btn.getAttribute("data-lang") === currentLang ? "true" : "false");
-    });
-    document.getElementById("access-gate-password").placeholder = dict[currentLang].password;
-    document.getElementById("access-gate-password").setAttribute("aria-label",dict[currentLang].password);
-    document.title = currentLang === "ko" ? "SIN LOTE | 복구 가이드" : "SIN LOTE | Recovery Guide";
-    renderTriage();
-  }
-  document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.getAttribute("data-lang"))));
-  const gate = document.getElementById("access-gate");
-  document.body.classList.add("gate-locked");
-  document.getElementById("access-gate-form").addEventListener("submit",function(e){
-    e.preventDefault();
-    if(document.getElementById("access-gate-password").value === "7777777"){
-      document.body.classList.remove("gate-locked");
-      gate.remove();
-    }else{
-      document.getElementById("access-gate-error").textContent = dict[currentLang].wrong;
-      document.getElementById("access-gate-password").select();
-    }
-  });
-
-  const tn = {
-   start:{q:{es:"¿Qué estado ves en GMS Multi Lote?",ko:"GMS Multi Lote에서 어떤 상태가 확인되나요?"},h:{es:"Elige el resultado comprobado. No crees LOT antes de consultar.",ko:"실제로 확인한 조회 결과를 선택하세요. 조회 전에 LOT를 생성하지 마세요."},o:[
-    {n:"existing_deleted",l:{es:"El LOT existe",ko:"LOT가 조회됨"},d:{es:"GMS devuelve el LOT para el código consultado.",ko:"GMS에서 입력 코드의 LOT가 조회됩니다."},t:"success"},
-    {n:"missing_route",l:{es:"LOT no existe / no se encuentra",ko:"LOT 미생성 / 조회되지 않음"},d:{es:"Multi Lote no devuelve un LOT para ese código.",ko:"Multi Lote에서 해당 코드의 LOT가 나오지 않습니다."},t:"warning"},
-    {n:"rep_router",l:{es:"El LOT representativo ya existe",ko:"대표 랏이 이미 존재함"},d:{es:"Comprobar Router y el escaneo del LOT individual.",ko:"Router 상태와 개별 LOT 스캔을 확인합니다."},t:""}
-   ]},
-   existing_deleted:{q:{es:"¿El LOT aparece como eliminado?",ko:"LOT가 삭제 상태로 표시되나요?"},h:{es:"Comprueba el estado en GMS antes de actuar.",ko:"조치하기 전에 GMS에서 현재 상태를 확인하세요."},o:[
-    {r:"existingDeleted",l:{es:"Sí, está eliminado",ko:"예, 삭제 상태"},d:{es:"Restaurar con el procedimiento llamado “품위”.",ko:"“품위” 절차로 복원합니다."},t:"warning"},
-    {n:"existing_process",l:{es:"No, está activo",ko:"아니요, 정상 상태"},d:{es:"Comprobar si el proceso MES coincide con el real.",ko:"MES 공정과 실제 공정이 일치하는지 확인합니다."},t:"success"}
-   ]},
-   existing_process:{q:{es:"¿El proceso registrado coincide con el proceso real?",ko:"시스템 등록 공정과 실제 공정이 일치하나요?"},h:{es:"Compara el historial MES con la ubicación física y el proceso al que debe ir el producto.",ko:"MES 이력과 실물 위치, 제품이 이동해야 할 공정을 비교하세요."},o:[
-    {r:"existingCorrect",l:{es:"Sí, coinciden",ko:"예, 일치함"},d:{es:"No generes otro LOT; registra la verificación.",ko:"새 LOT를 만들지 말고 확인 결과를 기록합니다."},t:"success"},
-    {r:"existingMismatch",l:{es:"No, son diferentes",ko:"아니요, 불일치"},d:{es:"Enviar al proceso correspondiente y verificar otra vez.",ko:"해당 공정으로 보내고 다시 확인합니다."},t:"warning"}
-   ]},
-   missing_route:{q:{es:"¿Qué ruta corresponde al caso?",ko:"이 건은 어떤 처리 경로인가요?"},h:{es:"Usa la clasificación real del caso; no elijas por intuición o solo por el modelo.",ko:"모델명만으로 추정하지 말고 실제 건의 분류에 따라 선택하세요."},o:[
-    {r:"externalMissing",l:{es:"Ruta externa / no aparece LOT externo",ko:"외주 경로 / 외주 LOT 없음"},d:{es:"Solo LOT individuales para los productos físicos reales.",ko:"실제 제품의 개별 LOT만 생성합니다."},t:"warning"},
-    {n:"mainsub_complete",l:{es:"Ruta Main/Sub",ko:"Main/Sub 경로"},d:{es:"Confirmar si el conjunto físico está completo.",ko:"실물 세트가 완성됐는지 확인합니다."},t:""}
-   ]},
-   mainsub_complete:{q:{es:"¿Está completo el conjunto físico requerido?",ko:"필요한 실물 세트 구성이 완성됐나요?"},h:{es:"Compara la cantidad que exige el modelo con los productos que existen físicamente.",ko:"모델에 필요한 기준 수량과 실제 제품 수량을 비교하세요."},o:[
-    {r:"mainSubComplete",l:{es:"Sí, está completo",ko:"예, 세트 완성"},d:{es:"Crear LOT individuales y emparejar en Main/Sub cuando el representativo esté disponible.",ko:"개별 LOT를 만들고 대표 랏이 준비되면 Main/Sub에서 매칭합니다."},t:"success"},
-    {r:"mainSubIncomplete",l:{es:"No, faltan unidades",ko:"아니요, 제품 수량 부족"},d:{es:"Solo LOT individuales para los productos existentes; no representativo.",ko:"실제 제품의 개별 LOT만 생성하며 대표 랏은 만들지 않습니다."},t:"warning"}
-   ]},
-   rep_router:{q:{es:"¿Router ya cortó físicamente el producto?",ko:"Router에서 제품을 이미 물리적으로 절단했나요?"},h:{es:"Este es el flujo separado para cuando el LOT representativo ya existe.",ko:"대표 랏이 이미 존재하는 경우의 별도 흐름입니다."},o:[
-    {n:"rep_scan",l:{es:"Sí, ya está cortado",ko:"예, 이미 절단됨"},d:{es:"Comprobar si el LOT individual puede escanearse.",ko:"개별 LOT가 스캔되는지 확인합니다."},t:"success"},
-    {r:"routerNotCut",l:{es:"No / no está confirmado",ko:"아니요 / 확인되지 않음"},d:{es:"No inventar una recuperación; confirmar la ruta aplicable.",ko:"임의로 복구하지 말고 적용 절차를 확인합니다."},t:"warning"}
-   ]},
-   rep_scan:{q:{es:"Después del corte de Router, ¿el LOT individual no se puede escanear?",ko:"Router 절단 후 개별 LOT가 스캔되지 않나요?"},h:{es:"Sigue solo la condición confirmada para este caso.",ko:"이 케이스에서 실제 확인된 조건만 선택하세요."},o:[
-    {r:"repRestore",l:{es:"Sí, no se puede escanear",ko:"예, 개별 LOT 스캔 불가"},d:{es:"La regla documentada indica restaurar el LOT representativo.",ko:"문서화된 규칙은 대표 랏 복원입니다."},t:"warning"},
-    {r:"repScanOk",l:{es:"No, el LOT individual sí escanea",ko:"아니요, 개별 LOT 스캔 가능"},d:{es:"No restaurar por defecto; verificar Main/Sub, QR y proceso.",ko:"무조건 복원하지 말고 Main/Sub, QR, 공정을 확인합니다."},t:"success"}
-   ]}
-  };
-  const trr = {
-   existingDeleted:{t:"warning",s:{es:"ACCIÓN · RESTAURAR",ko:"조치 · 복원"},h:{es:"Restaurar el LOT existente",ko:"기존 LOT 복원"},b:{es:"Usa el procedimiento de planta indicado como “품위”. Después, vuelve a consultar el LOT en GMS y confirma la restauración.",ko:"현장 절차인 “품위”로 LOT를 복원합니다. 이후 GMS에서 다시 조회해 복원이 완료됐는지 확인합니다."},r:{es:"No generes otro LOT para reemplazar el LOT eliminado.",ko:"삭제 LOT를 대체하려고 새 LOT를 생성하지 마세요."},a:"#step-4",m:"#decision-map"},
-   existingCorrect:{t:"success",s:{es:"RESULTADO · VERIFICADO",ko:"결과 · 확인 완료"},h:{es:"No crear otro LOT",ko:"새 LOT를 생성하지 않음"},b:{es:"El LOT existe, no está eliminado y el proceso coincide con la situación real. Registra la verificación en Excel y cierra tras completar los controles.",ko:"LOT가 존재하고 삭제 상태가 아니며 공정도 실제 상태와 일치합니다. Excel에 결과를 기록하고 모든 검증 후 종료합니다."},r:{es:"Evita LOT duplicados. Si falta otra verificación, mantén el caso abierto.",ko:"중복 LOT를 만들지 마세요. 추가 검증이 남아 있으면 완료 처리하지 마세요."},a:"#step-4",m:"#step-9"},
-   existingMismatch:{t:"action",s:{es:"ACCIÓN · CORREGIR PROCESO",ko:"조치 · 공정 정정"},h:{es:"Enviar al proceso correspondiente",ko:"해당 공정으로 이동"},b:{es:"Envía el producto al proceso que corresponde y vuelve a comprobar que la ubicación física y el proceso MES coincidan.",ko:"제품을 해당 공정으로 보낸 뒤 실물 위치와 MES 등록 공정이 일치하는지 다시 확인합니다."},r:{es:"No generes otro LOT si el existente es válido.",ko:"기존 LOT가 유효하다면 새 LOT를 만들지 마세요."},a:"#step-4",m:"#decision-map"},
-   externalMissing:{t:"warning",s:{es:"RUTA EXTERNA · LOT NO ENCONTRADO",ko:"외주 경로 · LOT 조회 안 됨"},h:{es:"Crear LOT individuales para productos reales",ko:"실제 제품의 개별 LOT만 생성"},b:{es:"Si no aparece el LOT externo, crea únicamente un LOT individual por producto físico real. Genera el QR correspondiente y escanéalo en el proceso que aplique.",ko:"외주 LOT가 조회되지 않으면 실제 제품별 개별 LOT만 생성합니다. 해당 QR을 만들고 적용 공정에서 스캔합니다."},r:{es:"No crear LOT representativo ni LOT ficticios para completar la cantidad.",ko:"부족한 수량을 채우기 위해 대표 랏이나 허수 LOT를 만들지 마세요."},a:"#step-7",m:"#step-8"},
-   mainSubComplete:{t:"success",s:{es:"MAIN/SUB · CONJUNTO COMPLETO",ko:"MAIN/SUB · 세트 완성"},h:{es:"Crear LOT individuales y emparejar después",ko:"개별 LOT 생성 후 매칭"},b:{es:"En Lote Main Line, crea únicamente LOT individuales. El LOT representativo se gestiona mediante su procedimiento separado. Cuando ambos estén disponibles, empareja los LOT correctos en Main/Sub.",ko:"Lote Main Line에서 개별 LOT만 생성합니다. 대표 랏은 별도 절차로 처리하며 둘 다 준비되면 Main/Sub에서 올바르게 매칭합니다."},r:{es:"Lote Main Line NO crea el LOT representativo. No emparejes hasta que el representativo esté disponible.",ko:"Lote Main Line은 대표 랏을 생성하지 않습니다. 대표 랏이 준비되기 전에는 매칭하지 마세요."},a:"#step-7",m:"#decision-map"},
-   mainSubIncomplete:{t:"warning",s:{es:"MAIN/SUB · CONJUNTO INCOMPLETO",ko:"MAIN/SUB · 세트 미완성"},h:{es:"Crear solo LOT individuales reales",ko:"실제 제품의 개별 LOT만 생성"},b:{es:"Cuenta solo los productos que existen. Si el estándar requiere 6 unidades y hay 4, crea únicamente los 4 LOT individuales de esos productos.",ko:"실제로 존재하는 제품만 셉니다. 기준이 6개인데 실물이 4개면 해당 4개에 대해서만 개별 LOT를 생성합니다."},r:{es:"No crear LOT representativo ni LOT ficticios para completar la cantidad faltante.",ko:"부족한 수량을 채우려고 대표 랏 또는 허수 LOT를 생성하지 마세요."},a:"#step-6",m:"#step-7"},
-   routerNotCut:{t:"hold",s:{es:"PENDIENTE · CONFIRMAR PROCEDIMIENTO",ko:"확인 대기 · 절차 확인 필요"},h:{es:"No restaurar por suposición",ko:"추정만으로 복원하지 않기"},b:{es:"La regla disponible solo define la recuperación cuando Router ya cortó el producto y el LOT individual no se puede escanear. En otro estado, confirma GMS/MES y consulta al responsable del proceso.",ko:"현재 규칙은 Router 절단이 완료됐고 개별 LOT가 스캔되지 않는 경우만 정의합니다. 다른 상태라면 GMS/MES를 확인하고 공정 담당자에게 절차를 확인하세요."},r:{es:"No inventar pasos ni restaurar el representante sin confirmar la condición.",ko:"조건 확인 없이 절차를 만들어 내거나 대표 랏을 복원하지 마세요."},a:"#representative-existing-case",m:"#decision-map"},
-   repRestore:{t:"warning",s:{es:"ACCIÓN · REPRESENTATIVO EXISTENTE",ko:"조치 · 대표 랏 존재 케이스"},h:{es:"Restaurar el LOT representativo",ko:"대표 랏 복원"},b:{es:"Con Router ya cortado y el LOT individual sin posibilidad de escaneo, la regla documentada indica restaurar el LOT representativo. Después, confirma el estado en GMS/MES.",ko:"Router 절단이 완료됐고 개별 LOT가 스캔되지 않으면 문서화된 규칙에 따라 대표 랏을 복원합니다. 이후 GMS/MES 상태를 확인하세요."},r:{es:"Este flujo es distinto del caso en que el LOT representativo no existe.",ko:"이 흐름은 대표 랏이 없는 케이스와 별개입니다."},a:"#representative-existing-case",m:"#decision-map"},
-   repScanOk:{t:"action",s:{es:"VERIFICAR · SIN RESTAURACIÓN AUTOMÁTICA",ko:"확인 · 자동 복원하지 않음"},h:{es:"Verificar Main/Sub, QR y proceso",ko:"Main/Sub, QR, 공정 확인"},b:{es:"Como el LOT individual sí se escanea, la condición indicada para restaurar el representativo no se cumple. Verifica Main/Sub, la correspondencia del QR y el proceso registrado.",ko:"개별 LOT가 스캔되므로 대표 랏 복원 조건은 충족되지 않습니다. Main/Sub 연결, QR과 제품 일치 여부, 등록 공정을 확인하세요."},r:{es:"Si la discrepancia continúa, deja el caso pendiente y comprueba los registros GMS/MES.",ko:"불일치가 계속되면 확인 대기 상태로 두고 GMS/MES 기록을 확인하세요."},a:"#representative-existing-case",m:"#decision-map"}
-  };
-  let tnode="start", ttrail=[], tres=null;
-  function tr(x){return x && x[currentLang] ? x[currentLang] : "";}
-  function renderTriage(){
-   const wrap=document.getElementById("triage-question-wrap"), box=document.getElementById("triage-result");
-   if(!wrap||!box)return;
-   const crumbs=document.getElementById("triage-crumbs");crumbs.innerHTML="";
-   ttrail.forEach(function(v){const e=document.createElement("span");e.className="triage-crumb";e.textContent=tr(v.label);crumbs.appendChild(e);});
-   document.getElementById("triage-step-chip").textContent=(currentLang==="ko"?"단계 ":"PASO ")+String(Math.min(ttrail.length+1,4)).padStart(2,"0");
-   document.getElementById("triage-back").disabled=ttrail.length===0;
-   if(tres){
-    wrap.hidden=true;box.hidden=false;const v=trr[tres];box.setAttribute("data-tone",v.t);
-    document.getElementById("triage-status").textContent=tr(v.s);
-    document.getElementById("triage-result-title").textContent=tr(v.h);
-    document.getElementById("triage-result-body-text").textContent=tr(v.b);
-    document.getElementById("triage-rule").textContent=tr(v.r);
-    return;
-   }
-   wrap.hidden=false;box.hidden=true;const nd=tn[tnode];
-   document.getElementById("triage-question").textContent=tr(nd.q);document.getElementById("triage-help").textContent=tr(nd.h);
-   const area=document.getElementById("triage-options");area.innerHTML="";
-   nd.o.forEach(function(o,i){
-    const b=document.createElement("button");b.type="button";b.className="triage-option";b.dataset.next=o.n||"";b.dataset.result=o.r||"";b.dataset.tone=o.t||"";
-    const mark=document.createElement("span");mark.className="triage-mark";mark.textContent=String.fromCharCode(65+i);
-    const copy=document.createElement("span");copy.className="triage-option-copy";
-    const strong=document.createElement("strong");strong.textContent=tr(o.l);
-    const small=document.createElement("small");small.textContent=tr(o.d);
-    copy.appendChild(strong);copy.appendChild(small);
-    const arrow=document.createElement("span");arrow.className="triage-arrow";arrow.textContent="→";arrow.setAttribute("aria-hidden","true");
-    b.appendChild(mark);b.appendChild(copy);b.appendChild(arrow);area.appendChild(b);
-   });
-  }
-  document.getElementById("triage-options").addEventListener("click",function(e){
-   const b=e.target.closest("button.triage-option");if(!b)return;
-   const nd=tn[tnode],o=nd.o.find(function(v){return (v.n||"")===(b.dataset.next||"")&&(v.r||"")===(b.dataset.result||"")&&tr(v.l)===b.querySelector("strong").textContent;});
-   if(!o)return;ttrail.push({node:tnode,label:o.l});if(o.r)tres=o.r;else{tnode=o.n;tres=null;}renderTriage();
-  });
-  document.getElementById("triage-back").addEventListener("click",function(){if(!ttrail.length)return;const prev=ttrail.pop();tnode=prev.node;tres=null;renderTriage();});
-  document.getElementById("triage-reset").addEventListener("click",function(){tnode="start";ttrail=[];tres=null;renderTriage();});
-  function goTriage(anchor){const el=document.querySelector(anchor);if(!el)return;if(el.matches("details.step-accordion")){document.querySelectorAll("details.step-accordion").forEach(function(d){d.open=d===el;});el.open=true;}if(el.matches("details.cause-accordion"))el.open=true;el.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});el.setAttribute("tabindex","-1");el.focus({preventScroll:true});}
-  document.getElementById("triage-go-procedure").addEventListener("click",function(){if(tres)goTriage(trr[tres].a);});
-  document.getElementById("triage-go-map").addEventListener("click",function(){goTriage("#decision-map");});
-
-
-  function openStepDetail(n){
-    const target=document.getElementById("step-"+n);
-    if(!target)return;
-    document.querySelectorAll("details.step-accordion").forEach(function(d){d.open=d===target;});
-    target.open=true;
-    target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
-  }
-  document.querySelectorAll(".jump-to-step").forEach(function(card){
-    const go=function(){openStepDetail(card.getAttribute("data-step-target"));};
-    card.addEventListener("click",go);
-    card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
-  });
-
-  setLanguage("es");
+ const PASS="7777777";
+ const gate=document.getElementById("access-gate");
+ const form=document.getElementById("gate-form");
+ const input=document.getElementById("gate-password");
+ const error=document.getElementById("gate-error");
+ form.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(input.value===PASS){gate.style.display="none";document.body.classList.remove("gate-locked");input.value="";}
+  else{error.textContent=document.documentElement.lang==="ko"?"비밀번호가 올바르지 않습니다.":"Contraseña incorrecta.";input.select();}
+ });
+ function setLang(lang){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-es][data-ko]").forEach(function(el){el.textContent=el.dataset[lang];});
+  document.getElementById("lang-es").setAttribute("aria-pressed",String(lang==="es"));
+  document.getElementById("lang-ko").setAttribute("aria-pressed",String(lang==="ko"));
+  input.placeholder=lang==="ko"?"비밀번호":"Contraseña";
+  input.setAttribute("aria-label",lang==="ko"?"비밀번호":"Contraseña");
+  error.textContent="";
+ }
+ document.getElementById("lang-es").addEventListener("click",function(){setLang("es");});
+ document.getElementById("lang-ko").addEventListener("click",function(){setLang("ko");});
+ setLang("es");
 })();
 </script>
 </body>
