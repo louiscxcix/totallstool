@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#142b3a">
+<title>LOT / SCS 수량 비교 | Louis Tools</title>
+<style>
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#172b3b;background:#f2f5f7;--navy:#142b3a;--blue:#1261d8;--cyan:#0d8795;--line:#d5e0e6;--muted:#5d7180;--green:#237447;--amber:#a85b13;--red:#b42318}
+*{box-sizing:border-box}body{margin:0}.top{background:var(--navy);color:#fff;padding:30px max(20px,calc((100vw - 1440px)/2))}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8bdde3;font-weight:800}.top h1{font-size:clamp(28px,4vw,42px);margin:8px 0}.top p{max-width:900px;color:#d2e0e7;line-height:1.55;margin:0}.wrap{max-width:1440px;margin:auto;padding:24px 20px 56px}.uploads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.upload{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px #142b3a0a}.upload h2{font-size:20px;margin:0 0 6px}.upload p{font-size:14px;line-height:1.5;color:var(--muted);margin:0 0 14px}.filebox{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.filebox input{max-width:100%;font:inherit}.file-name{color:var(--muted);font-size:13px;overflow-wrap:anywhere}.hint{margin-top:10px;padding:10px 12px;background:#eef5fa;border-radius:8px;color:#385666;font-size:13px;line-height:1.5}.notice{display:none;margin:16px 0;padding:13px 15px;border-radius:9px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0ef;color:#8c2119;border:1px solid #edc3bf}.notice.info{background:#eaf5fb;color:#244f68;border:1px solid #c8e0ed}.notice.warn{background:#fff5e5;color:#754307;border:1px solid #efd4a6}.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.metric span{display:block;color:var(--muted);font-size:13px;font-weight:700}.metric strong{display:block;margin-top:7px;font-size:clamp(22px,3vw,30px);font-variant-numeric:tabular-nums}.metric.mes{border-top:4px solid var(--blue)}.metric.scs{border-top:4px solid var(--cyan)}.results{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.results-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line)}.results-head h2{margin:0;font-size:21px}.results-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.table-wrap{overflow:auto;max-height:68vh}table{width:100%;border-collapse:collapse;min-width:1020px}th,td{padding:10px 12px;border-bottom:1px solid #e8edf0;text-align:left;font-size:13px;vertical-align:middle}thead th{position:sticky;top:0;background:#eaf1f5;color:#284758;font-size:12px;z-index:1}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.id{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;white-space:nowrap}.array-input{width:74px;padding:7px 8px;border:1px solid #bdcbd4;border-radius:6px;text-align:right;font:inherit}.array-input:focus{outline:3px solid #9bc9ff;border-color:var(--blue)}.missing{color:var(--amber);font-weight:800}.total-row{font-weight:900;background:#f0f5f8}.total-row td{border-top:2px solid #aebfc9}.empty{padding:36px 18px;text-align:center;color:var(--muted)}.footer{margin:14px 2px 0;color:var(--muted);font-size:12px;line-height:1.5}.busy{opacity:.6;pointer-events:none}@media(max-width:760px){.uploads{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:16px 12px 40px}.top{padding:24px 16px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="eyebrow">Louis · Operations Toolkit</div>
+  <h1>LOT / SCS 모델별 수량 비교</h1>
+  <p>두 Excel 파일을 각각 업로드하면 모델 ID를 연결하고 LOT 기준 MES 수량과 SCS 기준 Starpro 수량을 모델별·전체로 비교합니다. 파일은 이 브라우저 안에서만 읽으며 서버로 전송하지 않습니다.</p>
+</header>
+<main class="wrap">
+  <section class="uploads" aria-label="Excel upload">
+    <article class="upload">
+      <h2>1. LOT 등록 파일</h2>
+      <p>LOT 등록 페이지와 같은 형식의 Excel 파일을 선택하세요. 헤더명으로 열을 찾아 처리하므로 열 순서가 바뀌어도 됩니다.</p>
+      <div class="filebox"><input id="lot-file" type="file" accept=".xlsx,.xlsm"><span id="lot-file-name" class="file-name">선택된 파일 없음</span></div>
+      <div class="hint">필수 열: 활동, 제품ID. `INPUT_LOT` 행을 모델별로 세고 Array를 곱해 MES상 수량을 계산합니다. 원본 13열 LOT 등록 형식도 지원합니다.</div>
+    </article>
+    <article class="upload">
+      <h2>2. SCS 처리 파일</h2>
+      <p>SCS 처리 Excel 파일을 선택하세요. `Part No`의 모델 ID를 LOT 등록 모델 ID와 자동 연결합니다.</p>
+      <div class="filebox"><input id="scs-file" type="file" accept=".xlsx,.xlsm"><span id="scs-file-name" class="file-name">선택된 파일 없음</span></div>
+      <div class="hint">필수 열: Part No, Departure Qty, Non-Receiving Qty. Starpro 수량은 모델별로 `Departure Qty − Non-Receiving Qty`를 합산합니다.</div>
+    </article>
+  </section>
+  <div id="notice" class="notice" role="status" aria-live="polite"></div>
+  <section id="summary" class="summary" aria-label="Totals" hidden></section>
+  <section id="results" class="results" hidden>
+    <header class="results-head">
+      <div><h2>모델별 비교 결과</h2><p>Array 값은 기준표에서 확인·수정할 수 있습니다. 새 모델은 Array를 입력하면 MES상 수량에 반영됩니다.</p></div>
+    </header>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>제품명</th><th>모델 ID</th><th class="num">Array</th><th class="num">LOT INPUT_LOT</th><th class="num">MES상 수량</th><th class="num">Starpro 수량</th><th class="num">차이 (MES − Starpro)</th></tr></thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+  </section>
+  <p class="footer">지원 형식: Excel `.xlsx`, `.xlsm`. 수량 비교의 Array 기준은 제공된 수량 비교 파일의 모델별 설정을 사용합니다. 매칭되지 않거나 정규화 후 서로 다른 Array 기준이 충돌하는 모델은 임의 계산하지 않고 별도로 표시합니다.</p>
+</main>
+<script>
+(() => {
+  "use strict";
+
+  const arrayMaster = [
+    ["9ALLYF01ZX0.MMA21L",16,"T1XL Upper RH (9Y6Y-S3A)","ICT(LS)","PROD_A"],
+    ["9ALLYF01ZX0.MMB11L",16,"T1XL Upper LH (9Y6Y-S3B)","ICT(LS)","PROD_A"],
+    ["ALLAT34X10.MMA0",9,"ALLAT34X10.MMA0_P702 MCA_LH UPR","반사 Film Lami","PROD_A"],
+    ["ALLAT34X10.MMA1",9,"ALLAT34X10.MMA1_P702 MCA_RH UPR","반사 Film Lami","PROD_A"],
+    ["ALLAT41X10.MMF0",8,"ALLAT41X10.MMF0_U717_LH RCL #1","반사 Film Lami","PROD_A"],
+    ["ALLAT41X10.MMF1",8,"ALLAT41X10.MMF1_U717_RH RCL #1","반사 Film Lami","PROD_A"],
+    ["ALLYF01ZX0.MMA2",16,"T1XL LWR RH (9Y6Y-S3A)","ICT(LS)","PROD_A"],
+    ["ALLYF01ZX0.MMB1",16,"T1XL LWR LH (9Y6Y-S3B)","ICT(LS)","PROD_A"],
+    ["ALLYF01ZX0.MMB2",2,"T1XL LWR RH (9Y6Y-S3B)","ICT(LS)","PROD_A"],
+    ["ALLYF01ZX0.MMD1",2,"T1XL LWR LH (9Y6Y-S4B)","ICT(LS)","PROD_A"],
+    ["ALLYF01ZX0.MMD2",2,"T1XL LWR RH (9Y6Y-S4B)","ICT(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMC1",4,"LQ2 STD IB LH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMC2",4,"LQ2 STD IB RH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMD1",4,"LQ2 STD OB LH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMD2",4,"LQ2 STD OB RH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MME1",6,"LQ2 STD LWR LH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMF1",4,"LQ2 OPT IB LH","ICT(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMF2",4,"LQ2 OPT IB RH","ICT(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMG1",4,"LQ2 OPT OB LH","ICT(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMG2",4,"LQ2 OPT OB RH","ICT(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMH1",6,"LQ2 OPT LWR LH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMH2",6,"LQ2 OPT LWR RH","Router(LS)","PROD_A"],
+    ["ALLYH01ZX0.MMJ1",1,"LQ2 H/S LH(EB,EB)","TIM&SCREW(LS)","PROD"],
+    ["ALLYH01ZX0.MMJ2",1,"LQ2 H/S RH(EB,EB)","TIM&SCREW(LS)","PROD"],
+    ["ALLYU01Z10.MMAA",10,"G65 JP LH(O1)","ICT(LS)","PROD_A"],
+    ["ALLYU01Z10.MMAE",10,"G65 JP RH(O1)","ICT(LS)","PROD_A"],
+    ["ALLYU01Z10.MMBA",1,"G65 SI UPR1 LH(O1)","모듈통합(Module Integration)","PROD"],
+    ["ALLYU01Z10.MMCA",1,"G65 SI UPR2 LH(O1)","모듈통합(Module Integration)","PROD"],
+    ["ALLYU01Z10.MMDA",1,"G65 SI LWR1 LH(O1)","모듈통합(Module Integration)","PROD"],
+    ["ALLYU01Z10.MMEA",1,"G65 SI LWR2 LH(O1)","모듈통합(Module Integration)","PROD"],
+    ["ALLYU01Z10.MMFB",24,"G65 SM LH(6Y-B)","Router(LS)","PROD_A"],
+    ["ALLYU01Z10.MMFF",24,"G65 SM RH(6Y-B)","Router(LS)","PROD_A"],
+    ["ALLYU01Z10.MMGB",1,"G65 COR LH(T7)","SBL Assembly","PROD"],
+    ["ALLYU01Z10.MMGF",1,"G65 COR RH(T7)","SBL Assembly","PROD"],
+    ["ALLYU02X10.MM01",1,"BiLED2.5 Base suffix_E2000","ICT(LS)","PROD"],
+    ["ALLYU03X10.MMA0",1,"Mobis_2C_X","ICT(LS)","PROD"],
+    ["ALLYU03X10.MMB0",1,"Mobis_3C_X","ICT(LS)","PROD"],
+    ["ALLYU03X10.MMB1",1,"Mobis_3C_X_8J","ICT(LS)","PROD"],
+    ["ALLYU03X10.MMC0",1,"Mobis_3C_O","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMD1",1,"Uplevel Back-up_LH (C130)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMD2",1,"Uplevel Back-up_RH (C130)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMH1",1,"Base STT-BU_LH (STT(JX_3) - BU(C130))","EOL Ass'y(LS)","PROD"],
+    ["ALMYX26X10.MMJ3",1,"Upper_LH (JX_3 - 6C_3)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMJ4",1,"Upper_RH (JX_3 - 6C_3)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMR3",1,"Lower_LH (HZ_3 - 6C_3)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMZ3",1,"Lower_LH (JX_3 - 6C_3)","ICT(LS)","PROD"],
+    ["ALMYX26X10.MMZ4",1,"Lower_RH (JX_3 - 6C_3)","ICT(LS)","PROD"]
+  ];
+
+  const state = { lot: null, scs: null, arrays: new Map() };
+  const master = new Map();
+  for (const [sourceId, array, name, process, type] of arrayMaster) {
+    const id = modelFromScs(sourceId);
+    const existing = master.get(id);
+    if (!existing) {
+      master.set(id, { id, array, name, process, type, arrayConflict: false });
+      continue;
+    }
+    if (existing.array !== array) {
+      existing.array = null;
+      existing.arrayConflict = true;
+    }
+  }
+  const storedArrays = (() => {
+    try {
+      const current = JSON.parse(localStorage.getItem("lot-scs-arrays-v3") || "null");
+      if (current && typeof current === "object" && !Array.isArray(current)) return current;
+      const previous = JSON.parse(localStorage.getItem("lot-scs-arrays-v2") || "{}");
+      if (!previous || typeof previous !== "object" || Array.isArray(previous)) return {};
+      return {
+        ...previous,
+        "ALLYF01ZX0.MMA2": 16,
+        "ALLYF01ZX0.MMB1": 16
+      };
+    }
+    catch { return {}; }
+  })();
+  for (const [id, item] of master) {
+    const saved = Number(storedArrays[id]);
+    state.arrays.set(id, Number.isFinite(saved) && saved > 0 ? saved : item.array);
+  }
+
+  const byId = id => document.getElementById(id);
+  const numberFormat = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
+  const normalizeHeader = value => String(value ?? "").toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+  function canonicalId(value) {
+    return String(value ?? "").trim().toUpperCase();
+  }
+  function modelFromScs(value) {
+    let id = canonicalId(value);
+    if (id.startsWith("9")) id = id.slice(1);
+    return id.replace(/\d[LS]$/i, "");
+  }
+  function findColumn(headerMap, names, label) {
+    for (const name of names) {
+      const index = headerMap.get(normalizeHeader(name));
+      if (index !== undefined) return index;
+    }
+    throw new Error(`필수 열 "${label}"을(를) 찾지 못했습니다. 헤더 행과 파일 형식을 확인하세요.`);
+  }
+  function columnIndex(reference) {
+    const letters = reference.match(/^[A-Z]+/i)?.[0]?.toUpperCase();
+    if (!letters) return -1;
+    let result = 0;
+    for (const char of letters) result = result * 26 + char.charCodeAt(0) - 64;
+    return result - 1;
+  }
+  function descendants(node, localName) {
+    return Array.from(node.getElementsByTagName("*")).filter(item => item.localName === localName);
+  }
+  function parseXml(text, partName) {
+    const xml = new DOMParser().parseFromString(text, "application/xml");
+    if (xml.getElementsByTagName("parsererror").length) {
+      throw new Error(`Excel 파일의 ${partName} XML을 읽을 수 없습니다.`);
+    }
+    return xml;
+  }
+  async function inflateRaw(bytes) {
+    if (typeof DecompressionStream === "undefined") {
+      throw new Error("이 브라우저는 XLSX 압축 해제를 지원하지 않습니다. 최신 Edge 또는 Chrome에서 다시 시도하세요.");
+    }
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    return new Uint8Array(await new Response(stream).arrayBuffer());
+  }
+  async function readZip(file) {
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+    let eocd = -1;
+    for (let pos = bytes.length - 22; pos >= Math.max(0, bytes.length - 65557); pos--) {
+      if (view.getUint32(pos, true) === 0x06054b50) { eocd = pos; break; }
+    }
+    if (eocd < 0) throw new Error("정상적인 XLSX 파일이 아닙니다. Excel에서 .xlsx 형식으로 다시 저장하세요.");
+    const entryCount = view.getUint16(eocd + 10, true);
+    let cursor = view.getUint32(eocd + 16, true);
+    const entries = new Map();
+    const decoder = new TextDecoder("utf-8");
+    for (let i = 0; i < entryCount; i++) {
+      if (view.getUint32(cursor, true) !== 0x02014b50) throw new Error("XLSX 압축 목록을 읽을 수 없습니다.");
+      const method = view.getUint16(cursor + 10, true);
+      const compressedSize = view.getUint32(cursor + 20, true);
+      const nameLength = view.getUint16(cursor + 28, true);
+      const extraLength = view.getUint16(cursor + 30, true);
+      const commentLength = view.getUint16(cursor + 32, true);
+      const localOffset = view.getUint32(cursor + 42, true);
+      const name = decoder.decode(bytes.subarray(cursor + 46, cursor + 46 + nameLength));
+      entries.set(name, { method, compressedSize, localOffset });
+      cursor += 46 + nameLength + extraLength + commentLength;
+    }
+    return {
+      async text(name, optional = false) {
+        const entry = entries.get(name);
+        if (!entry) {
+          if (optional) return null;
+          throw new Error(`Excel 파일에서 ${name}을(를) 찾지 못했습니다.`);
+        }
+        const offset = entry.localOffset;
+        const nameLength = view.getUint16(offset + 26, true);
+        const extraLength = view.getUint16(offset + 28, true);
+        const start = offset + 30 + nameLength + extraLength;
+        const compressed = bytes.subarray(start, start + entry.compressedSize);
+        let content;
+        if (entry.method === 0) content = compressed;
+        else if (entry.method === 8) content = await inflateRaw(compressed);
+        else throw new Error(`지원하지 않는 XLSX 압축 형식입니다: ${entry.method}`);
+        return decoder.decode(content);
+      }
+    };
+  }
+  async function parseWorkbook(file, preferredSheet) {
+    if (!/\.(xlsx|xlsm)$/i.test(file.name)) throw new Error("Excel .xlsx 또는 .xlsm 파일을 선택하세요.");
+    const zip = await readZip(file);
+    const workbookXml = parseXml(await zip.text("xl/workbook.xml"), "workbook");
+    const relsXml = parseXml(await zip.text("xl/_rels/workbook.xml.rels"), "relationships");
+    const relationships = new Map(descendants(relsXml, "Relationship").map(rel => [rel.getAttribute("Id"), rel.getAttribute("Target")]));
+    const sheets = descendants(workbookXml, "sheet");
+    if (!sheets.length) throw new Error("Excel 파일에 시트가 없습니다.");
+    const wanted = sheets.find(sheet => normalizeHeader(sheet.getAttribute("name")) === normalizeHeader(preferredSheet));
+    const selected = wanted || sheets.find(sheet => sheet.getAttribute("state") !== "hidden") || sheets[0];
+    const relationId = selected.getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id") || selected.getAttribute("r:id");
+    let target = relationships.get(relationId);
+    if (!target) throw new Error("Excel 시트 위치를 확인할 수 없습니다.");
+    if (target.startsWith("/")) target = target.slice(1);
+    else target = `xl/${target}`;
+    const parts = [];
+    for (const part of target.split("/")) {
+      if (part === "..") parts.pop();
+      else if (part !== ".") parts.push(part);
+    }
+    target = parts.join("/");
+
+    const sharedXmlText = await zip.text("xl/sharedStrings.xml", true);
+    const shared = sharedXmlText
+      ? descendants(parseXml(sharedXmlText, "shared strings"), "si").map(si =>
+          descendants(si, "t").map(text => text.textContent).join(""))
+      : [];
+    const sheetXml = parseXml(await zip.text(target), "worksheet");
+    const rowNodes = descendants(sheetXml, "row");
+    const rows = rowNodes.map(rowNode => {
+      const row = [];
+      for (const cell of Array.from(rowNode.children).filter(child => child.localName === "c")) {
+        const index = columnIndex(cell.getAttribute("r") || "");
+        if (index < 0) continue;
+        const type = cell.getAttribute("t");
+        const valueNode = Array.from(cell.children).find(child => child.localName === "v");
+        let value = valueNode?.textContent ?? "";
+        if (type === "s" && value !== "") value = shared[Number(value)] ?? "";
+        if (type === "inlineStr") value = descendants(cell, "t").map(text => text.textContent).join("");
+        row[index] = value;
+      }
+      return row;
+    });
+    return { sheetName: selected.getAttribute("name"), rows };
+  }
+  function locateHeader(rows, required, kind) {
+    const aliases = kind === "lot"
+      ? { activity: ["활동", "Activity"], model: ["제품ID", "제품 ID", "Product ID", "ProductID"], name: ["제품명", "Product Name"], process: ["공정명", "Process Name"], type: ["Lot 처리 유형", "Lot Type"] }
+      : { part: ["Part No", "Part Number"], departure: ["Departure Qty", "Departure Quantity"], nonReceiving: ["Non-Receiving Qty", "Non Receiving Qty"] };
+    for (let rowIndex = 0; rowIndex < Math.min(rows.length, 30); rowIndex++) {
+      const headerMap = new Map();
+      (rows[rowIndex] || []).forEach((value, index) => headerMap.set(normalizeHeader(value), index));
+      if (required.every(key => aliases[key].some(alias => headerMap.has(normalizeHeader(alias))))) {
+        return { rowIndex, columns: Object.fromEntries(Object.entries(aliases).map(([key, names]) => {
+          try { return [key, findColumn(headerMap, names, names[0])]; }
+          catch { return [key, -1]; }
+        })) };
+      }
+    }
+    throw new Error(kind === "lot"
+      ? "LOT 파일에서 `활동` 및 `제품ID`가 있는 헤더 행을 찾지 못했습니다."
+      : "SCS 파일에서 `Part No`, `Departure Qty`, `Non-Receiving Qty` 헤더 행을 찾지 못했습니다.");
+  }
+  function numberValue(value) {
+    if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+    const text = String(value ?? "").trim();
+    if (!text) return 0;
+    const negative = /^\(.*\)$/.test(text);
+    const cleaned = text.replace(/[(),\s$]/g, "").replace(/[^\d.+-]/g, "");
+    const parsed = Number(cleaned);
+    if (!Number.isFinite(parsed)) return 0;
+    return negative ? -parsed : parsed;
+  }
+  function aggregateLot(workbook) {
+    const header = locateHeader(workbook.rows, ["activity", "model"], "lot");
+    const products = new Map();
+    let inputLots = 0;
+    let dataRows = 0;
+    for (let index = header.rowIndex + 1; index < workbook.rows.length; index++) {
+      const row = workbook.rows[index] || [];
+      const id = canonicalId(row[header.columns.model]);
+      if (!id) continue;
+      dataRows++;
+      const model = products.get(id) || { id, lots: 0, name: "", process: "", type: "" };
+      if (!model.name && header.columns.name >= 0) model.name = String(row[header.columns.name] ?? "").trim();
+      if (!model.process && header.columns.process >= 0) model.process = String(row[header.columns.process] ?? "").trim();
+      if (!model.type && header.columns.type >= 0) model.type = String(row[header.columns.type] ?? "").trim();
+      if (normalizeHeader(row[header.columns.activity]) === "inputlot") {
+        model.lots++;
+        inputLots++;
+      }
+      products.set(id, model);
+    }
+    return { products, inputLots, dataRows, sheetName: workbook.sheetName };
+  }
+  function aggregateScs(workbook) {
+    const header = locateHeader(workbook.rows, ["part", "departure", "nonReceiving"], "scs");
+    const products = new Map();
+    let dataRows = 0;
+    for (let index = header.rowIndex + 1; index < workbook.rows.length; index++) {
+      const row = workbook.rows[index] || [];
+      const rawId = String(row[header.columns.part] ?? "").trim();
+      if (!rawId) continue;
+      const id = modelFromScs(rawId);
+      if (!id) continue;
+      dataRows++;
+      const departure = numberValue(row[header.columns.departure]);
+      const nonReceiving = numberValue(row[header.columns.nonReceiving]);
+      const model = products.get(id) || { id, quantity: 0, departures: 0, nonReceiving: 0, rows: 0 };
+      model.quantity += departure - nonReceiving;
+      model.departures += departure;
+      model.nonReceiving += nonReceiving;
+      model.rows++;
+      products.set(id, model);
+    }
+    return { products, dataRows, sheetName: workbook.sheetName };
+  }
+  function format(value) { return numberFormat.format(value); }
+  function addCell(row, value, className = "") {
+    const cell = document.createElement("td");
+    if (className) cell.className = className;
+    cell.textContent = value;
+    row.append(cell);
+    return cell;
+  }
+  function showNotice(message, type = "info") {
+    const notice = byId("notice");
+    notice.textContent = message;
+    notice.className = `notice show ${type}`;
+  }
+  function updateResults() {
+    if (!state.lot && !state.scs) {
+      byId("summary").hidden = true;
+      byId("results").hidden = true;
+      return;
+    }
+    const ids = new Set(master.keys());
+    for (const id of state.lot?.products.keys() || []) ids.add(id);
+    for (const id of state.scs?.products.keys() || []) ids.add(id);
+    const ordered = Array.from(ids).sort((a, b) => a.localeCompare(b));
+    const body = byId("results-body");
+    body.replaceChildren();
+    let lotTotal = 0;
+    let lotTotalLots = 0;
+    let scsTotal = 0;
+    let missingArrays = 0;
+    for (const id of ordered) {
+      const lot = state.lot?.products.get(id);
+      const scs = state.scs?.products.get(id);
+      const masterRow = master.get(id);
+      const array = state.arrays.get(id);
+      const hasArray = Number.isFinite(array) && array > 0;
+      const mes = hasArray ? (lot?.lots || 0) * array : null;
+      const starpro = scs?.quantity || 0;
+      lotTotalLots += lot?.lots || 0;
+      if (hasArray) {
+        lotTotal += mes;
+      } else if (lot?.lots) {
+        missingArrays++;
+      }
+      scsTotal += starpro;
+      const row = document.createElement("tr");
+      addCell(row, lot?.name || masterRow?.name || "");
+      addCell(row, id, "id");
+      const arrayCell = document.createElement("td");
+      arrayCell.className = "num";
+      const input = document.createElement("input");
+      input.className = "array-input";
+      input.type = "number";
+      input.min = "0";
+      input.step = "any";
+      input.value = hasArray ? String(array) : "";
+      input.placeholder = masterRow?.arrayConflict ? "기준 충돌" : "Array";
+      if (masterRow?.arrayConflict) {
+        input.title = "이 모델 ID에 서로 다른 Array 기준이 연결되어 있습니다. LOT 모델에 맞는 값을 확인해 입력하세요.";
+      }
+      input.setAttribute("aria-label", `${id} Array 기준`);
+      input.dataset.modelId = id;
+      arrayCell.append(input);
+      row.append(arrayCell);
+      addCell(row, format(lot?.lots || 0), "num");
+      addCell(row, mes === null ? (lot?.lots ? "Array 필요" : "—") : format(mes), `num${mes === null && lot?.lots ? " missing" : ""}`);
+      addCell(row, state.scs ? format(starpro) : "—", "num");
+      addCell(row, mes === null ? "—" : (state.scs ? format(mes - starpro) : "—"), "num");
+      body.append(row);
+    }
+    const totalRow = document.createElement("tr");
+    totalRow.className = "total-row";
+    addCell(totalRow, "전체 합계");
+    addCell(totalRow, `${ordered.length}개 모델`);
+    addCell(totalRow, "");
+    addCell(totalRow, format(lotTotalLots), "num");
+    addCell(totalRow, state.lot ? format(lotTotal) : "—", "num");
+    addCell(totalRow, state.scs ? format(scsTotal) : "—", "num");
+    addCell(totalRow, state.lot && state.scs && !missingArrays ? format(lotTotal - scsTotal) : "—", "num");
+    body.append(totalRow);
+
+    const summary = byId("summary");
+    summary.replaceChildren();
+    const metrics = [
+      ["LOT INPUT_LOT", state.lot ? format(state.lot.inputLots) : "파일 대기"],
+      ["MES상 수량 · Array 적용", state.lot ? format(lotTotal) : "파일 대기"],
+      ["Starpro 수량 · 순수량 합계", state.scs ? format(scsTotal) : "파일 대기"],
+      ["모델 / Array 확인 필요", `${ordered.length} / ${missingArrays}`]
+    ];
+    for (const [label, value] of metrics) {
+      const card = document.createElement("div");
+      card.className = `metric${label.startsWith("MES") ? " mes" : label.startsWith("Starpro") ? " scs" : ""}`;
+      const caption = document.createElement("span");
+      caption.textContent = label;
+      const number = document.createElement("strong");
+      number.textContent = value;
+      card.append(caption, number);
+      summary.append(card);
+    }
+    summary.hidden = false;
+    byId("results").hidden = false;
+    if (missingArrays) {
+      const conflictedModels = ordered.filter(id =>
+        master.get(id)?.arrayConflict && state.lot?.products.get(id)?.lots
+      ).length;
+      const conflictMessage = conflictedModels
+        ? ` 이 중 ${conflictedModels}개는 SCS ID 정규화 후 서로 다른 Array 기준이 겹칩니다.`
+        : "";
+      showNotice(`${missingArrays}개 모델의 Array 기준을 확인해야 MES 수량을 계산할 수 있습니다.${conflictMessage} 결과 표에 올바른 Array를 입력하면 바로 반영됩니다.`, "warn");
+    } else if (state.lot && state.scs) {
+      showNotice(`두 파일을 모델별로 연결했습니다. LOT ${state.lot.dataRows.toLocaleString()}행 · SCS ${state.scs.dataRows.toLocaleString()}행을 집계했습니다.`, "info");
+    } else if (state.lot) {
+      showNotice(`LOT 등록 파일에서 ${state.lot.dataRows.toLocaleString()}행을 집계했습니다. SCS 파일을 추가하면 모델별 비교를 표시합니다.`, "info");
+    } else if (state.scs) {
+      showNotice(`SCS 처리 파일에서 ${state.scs.dataRows.toLocaleString()}행을 집계했습니다. LOT 등록 파일을 추가하면 모델별 비교를 표시합니다.`, "info");
+    }
+  }
+  function saveArrays() {
+    const values = {};
+    for (const [id, value] of state.arrays) values[id] = value;
+    try { localStorage.setItem("lot-scs-arrays-v3", JSON.stringify(values)); }
+    catch { /* The current page still retains edits if local file storage is unavailable. */ }
+  }
+  document.addEventListener("change", event => {
+    const input = event.target.closest(".array-input");
+    if (!input) return;
+    const id = canonicalId(input.dataset.modelId);
+    const value = Number(input.value);
+    if (input.value.trim() && Number.isFinite(value) && value > 0) state.arrays.set(id, value);
+    else state.arrays.delete(id);
+    saveArrays();
+    updateResults();
+  });
+  async function loadFile(kind, file) {
+    if (!file) return;
+    const input = byId(`${kind}-file`);
+    document.body.classList.add("busy");
+    try {
+      showNotice(`${kind === "lot" ? "LOT 등록" : "SCS 처리"} 파일을 읽고 있습니다…`, "info");
+      const workbook = await parseWorkbook(file, kind === "lot" ? "LOT 등록" : "SCS처리");
+      state[kind] = kind === "lot" ? aggregateLot(workbook) : aggregateScs(workbook);
+      byId(`${kind}-file-name`).textContent = `${file.name} · ${state[kind].dataRows.toLocaleString()}행 · 시트 ${state[kind].sheetName}`;
+      updateResults();
+    } catch (error) {
+      input.value = "";
+      state[kind] = null;
+      byId(`${kind}-file-name`).textContent = "선택된 파일 없음";
+      showNotice(error instanceof Error ? error.message : String(error), "error");
+      updateResults();
+    } finally {
+      document.body.classList.remove("busy");
+    }
+  }
+  byId("lot-file").addEventListener("change", event => loadFile("lot", event.target.files?.[0]));
+  byId("scs-file").addEventListener("change", event => loadFile("scs", event.target.files?.[0]));
+})();
+</script>
+</body>
+</html>
